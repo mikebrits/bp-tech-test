@@ -4,8 +4,8 @@ import Icon from '../Icon';
 
 const PlayPauseButton = ({ playing, onClick = () => {} }) => {
     return (
-        <Container onClick={onClick}>
-            <Button>
+        <Container>
+            <Button onClick={onClick}>
                 <Icon size={10} name={playing ? 'pause' : 'play'} />
             </Button>
         </Container>

@@ -7,6 +7,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 `;
 
 export const Button = styled.div`
@@ -19,4 +20,5 @@ export const Button = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    pointer-events: all;
 `;
