@@ -25,6 +25,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
         status,
         assigned,
         running,
+        percentageComplete,
     } = data;
     return (
         <Container>
@@ -35,7 +36,9 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                     <Description>
                         <Text>{description}</Text>
                     </Description>
-                    {running && <ProgressBar percentageComplete={67} />}
+                    {(status === 'Running' || status === 'Paused') && (
+                        <ProgressBar percentageComplete={percentageComplete} />
+                    )}
                 </Details>
                 <Actions>
                     <PlayPauseButton

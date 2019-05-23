@@ -22,6 +22,9 @@ const initialState = {
     startTime: null,
     tasks: [],
     running: false,
+    totalTime: 0,
+    timeRemaining: 0,
+    percentageComplete: 0,
 };
 
 export default (state = initialState, action) => {
@@ -32,6 +35,7 @@ export default (state = initialState, action) => {
                       ...state,
                       running: true,
                       status: 'Running',
+                      timeRemaining: state.timeRemaining || state.totalTime,
                   }
                 : state;
         case PAUSE_WORKING:
@@ -71,9 +75,19 @@ export default (state = initialState, action) => {
                 status: action.payload.status,
             };
         case TICK:
+            if (!state.running) {
+                return state;
+            }
+            const timeRemaining =
+                state.timeRemaining >= state.currentWorkers
+                    ? state.timeRemaining - state.currentWorkers
+                    : 0;
             return {
                 ...state,
-                workers: state.workers.map(worker => WorkerReducer(worker, action)),
+                timeRemaining,
+                percentageComplete: 100 - (timeRemaining / state.totalTime) * 100,
+                status: timeRemaining === 0 ? 'Completed' : state.status,
+                running: timeRemaining !== 0,
             };
         default:
             return state;

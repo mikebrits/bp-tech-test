@@ -4,7 +4,7 @@ import {
     REMOVE_WORKER,
     SET_PRIORITY,
     SET_STATUS,
-    START_WORKING,
+    START_WORKING, TICK,
 } from '../constants';
 
 export const assignWorker = ({ id }) => ({
@@ -48,4 +48,11 @@ export const setProcessPriority = ({ id, priority }) => ({
         id,
         priority,
     },
+});
+
+export const tick = () => ({
+    type: TICK,
+    payload: {
+        
+    }
 });
