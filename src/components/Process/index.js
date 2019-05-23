@@ -1,7 +1,12 @@
 import Process from './Process';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { assignWorker, removeWorker } from '../../actions/Process.actions';
+import {
+    assignWorker,
+    removeWorker,
+    runProcess,
+    suspendProcess,
+} from '../../actions/Process.actions';
 
 export default ({ data }) => {
     const dispatch = useDispatch();
@@ -15,6 +20,12 @@ export default ({ data }) => {
             }}
             onRemoveWorker={() => {
                 dispatch(removeWorker({ id }));
+            }}
+            onRun={() => {
+                dispatch(runProcess({ id }));
+            }}
+            onSuspend={() => {
+                dispatch(suspendProcess({ id }));
             }}
         />
     );

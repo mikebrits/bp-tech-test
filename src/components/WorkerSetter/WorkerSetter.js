@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './WorkerSetter.styled-components';
-import { Subheading, Text } from '../UI/Typography';
+import { Text } from '../UI/Typography';
 import Icon from '../Icon';
 import { Row } from '../UI/Pane';
 

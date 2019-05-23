@@ -1,15 +1,15 @@
 import React from 'react';
 import { Container, Details, Description, Actions } from './Process.styled-components';
-import { Heading, Subheading, Text } from '../UI/Typography';
+import { Text } from '../UI/Typography';
 import ProgressBar from '../ProgressBar';
-import { Col, Row, View } from '../UI/Pane';
+import { Col, Row } from '../UI/Pane';
 import WorkerSetter from '../WorkerSetter';
 import Priority from '../Priority';
 import StatusBar from '../StatusBar';
 import PlayPauseButton from '../PlayPauseButton';
 
-const Process = ({ data, onAssignWorker, onRemoveWorker }) => {
-    const { id, name, description, currentWorkers, maxWorkers, priority, status, assigned } = data;
+const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend }) => {
+    const { name, description, currentWorkers, maxWorkers, priority, status, assigned } = data;
     return (
         <Container>
             <Row>
@@ -21,7 +21,12 @@ const Process = ({ data, onAssignWorker, onRemoveWorker }) => {
                     <ProgressBar percentageComplete={67} />
                 </Details>
                 <Actions>
-                    <PlayPauseButton playing={assigned} />
+                    <PlayPauseButton
+                        playing={assigned}
+                        onClick={() => {
+                            assigned ? onSuspend() : onRun();
+                        }}
+                    />
                     <Col padding="0 0 0 24" align="center">
                         <WorkerSetter
                             activeWorkers={currentWorkers}

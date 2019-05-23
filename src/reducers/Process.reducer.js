@@ -4,7 +4,6 @@ import {
     REMOVE_WORKER,
     SET_PRIORITY,
     SET_STATUS,
-    START_WORKING,
     TICK,
 } from '../constants';
 import WorkerReducer from './Workers.reducer';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Container, ProcessWrapper } from './Processes.styled-components';
 import { getProcesses } from '../../selectors';
 import Process from '../Process';
