@@ -36,8 +36,8 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
         <Container>
             <Row>
                 <Details>
-                    <Icon name={icon} />
-                    <Text bold margin={'0 0 0 8px'}>{name}</Text>
+                    <Icon name={icon} color="#c7c7c7"/>
+                    <Text bold margin={'0 0 0 10px'}>{name}</Text>
                     <Divider border />
                     <Description>
                         <Text>{description}</Text>
