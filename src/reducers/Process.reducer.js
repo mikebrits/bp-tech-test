@@ -95,12 +95,16 @@ export default (state = initialState, action) => {
                 state.computationRemaining >= state.currentWorkers
                     ? state.computationRemaining - state.currentWorkers
                     : 0;
+            const done = computationRemaining === 0;
             return {
                 ...state,
                 computationRemaining,
                 percentageComplete: 100 - (computationRemaining / state.totalTime) * 100,
-                status: computationRemaining === 0 ? 'Completed' : state.status,
-                running: computationRemaining !== 0,
+                status: done ? 'Completed' : state.status,
+                running: !done,
+                currentWorkers: done ? 0 : state.currentWorkers,
+                assigned: !done,
+                priority: done ? 0 : state.priority,
                 timeRemaining: Math.floor(state.computationRemaining / state.currentWorkers),
             };
         default:
