@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import {
     assignWorker,
     removeWorker,
-    runProcess,
+    runProcess, setProcessPriority,
     suspendProcess,
 } from '../../actions/Process.actions';
 
@@ -26,6 +26,9 @@ export default ({ data }) => {
             }}
             onSuspend={() => {
                 dispatch(suspendProcess({ id }));
+            }}
+            onSetPriority={(priority) => {
+                dispatch(setProcessPriority({id, priority}))
             }}
         />
     );

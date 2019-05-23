@@ -8,7 +8,7 @@ import Priority from '../Priority';
 import StatusBar from '../StatusBar';
 import PlayPauseButton from '../PlayPauseButton';
 
-const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend }) => {
+const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSetPriority }) => {
     const { name, description, currentWorkers, maxWorkers, priority, status, assigned } = data;
     return (
         <Container>
@@ -36,7 +36,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend }) => 
                         />
                         <Priority rating={priority} />
                     </Col>
-                    <StatusBar status={status} />
+                    <StatusBar status={status} onSetPriority={onSetPriority} />
                 </Actions>
             </Row>
         </Container>

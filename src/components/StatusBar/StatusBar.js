@@ -22,7 +22,7 @@ const StatusBar = ({ status, onArchive, onAutoAssign, onSchedule, onSelectWorker
                 open={popoverOpen}
             >
                 <Menu>
-                    {!settingPriority ? (
+                    {settingPriority ? (
                         <PrioritySetter onSetPriority={onSetPriority}/>
                     ) : (
                         <>
