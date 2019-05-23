@@ -8,6 +8,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    top: 0;
+    bottom: 0;
 `;
 
 export const Button = styled.div`

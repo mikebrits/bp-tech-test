@@ -11,7 +11,7 @@ const StatusBar = ({ status, onArchive, onAutoAssign, onSchedule, onSelectWorker
     const [settingPriority, setSettingPriority] = useState(false);
     return (
         <Container>
-            <div ref={anchorRef} onClick={() => setPopoverOpen(true)}>
+            <div style={{marginRight: 8}} ref={anchorRef} onClick={() => setPopoverOpen(true)}>
                 <IconButton name="cog" />
             </div>
             <Popover

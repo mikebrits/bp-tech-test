@@ -8,7 +8,7 @@ export const Container = styled(Card)`
 
 export const Details = styled.div`
     padding: 8px 16px;
-    width: 80%;
+    width: 75%;
 `;
 
 export const Description = styled.div`
@@ -16,8 +16,16 @@ export const Description = styled.div`
 `;
 
 export const Actions = styled.div`
-    width: 20%;
+    width: 25%;
     border-left: ${({ theme }) => theme.borders.standard};
     position: relative;
+    padding-top: 16px;
+`;
+
+export const ActionsWrapper = styled.div`
     height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    text-align: center;
 `;

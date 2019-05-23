@@ -1,5 +1,11 @@
 import React from 'react';
-import { Container, Details, Description, Actions } from './Process.styled-components';
+import {
+    Container,
+    Details,
+    Description,
+    Actions,
+    ActionsWrapper,
+} from './Process.styled-components';
 import { Text } from '../UI/Typography';
 import ProgressBar from '../ProgressBar';
 import { Col, Row } from '../UI/Pane';
@@ -7,14 +13,25 @@ import WorkerSetter from '../WorkerSetter';
 import Priority from '../Priority';
 import StatusBar from '../StatusBar';
 import PlayPauseButton from '../PlayPauseButton';
+import { Divider } from '../UI/Divider';
 
 const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSetPriority }) => {
-    const { name, description, currentWorkers, maxWorkers, priority, status, assigned } = data;
+    const {
+        name,
+        description,
+        currentWorkers,
+        maxWorkers,
+        priority,
+        status,
+        assigned,
+        running,
+    } = data;
     return (
         <Container>
             <Row>
                 <Details>
                     <Text bold>{name}</Text>
+                    <Divider border />
                     <Description>
                         <Text>{description}</Text>
                     </Description>
@@ -22,21 +39,24 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                 </Details>
                 <Actions>
                     <PlayPauseButton
-                        playing={assigned}
+                        playing={running}
                         onClick={() => {
-                            assigned ? onSuspend() : onRun();
+                            running ? onSuspend() : onRun();
                         }}
                     />
-                    <Col padding="0 0 0 24" align="center">
-                        <WorkerSetter
-                            activeWorkers={currentWorkers}
-                            maxWorkers={maxWorkers}
-                            onAssign={onAssignWorker}
-                            onRemove={onRemoveWorker}
-                        />
-                        <Priority rating={priority} />
-                    </Col>
-                    <StatusBar status={status} onSetPriority={onSetPriority} />
+                    <ActionsWrapper>
+                        <>
+                            <WorkerSetter
+                                activeWorkers={currentWorkers}
+                                maxWorkers={maxWorkers}
+                                onAssign={onAssignWorker}
+                                onRemove={onRemoveWorker}
+                            />
+                            <Divider margin={4}/>
+                            <Priority rating={priority} />
+                        </>
+                        <StatusBar status={status} onSetPriority={onSetPriority} />
+                    </ActionsWrapper>
                 </Actions>
             </Row>
         </Container>

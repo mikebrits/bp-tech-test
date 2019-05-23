@@ -10,6 +10,7 @@ export const REMOVE_WORKER = 'REMOVE_WORKER';
 export const SET_PRIORITY = 'SET_PRIORITY';
 export const SET_STATUS = 'SET_STATUS';
 export const START_WORKING = 'START_WORKING';
+export const PAUSE_WORKING = 'PAUSE_WORKING';
 
 //Machine Action - This simulates time going by
 export const TICK = 'TICK';

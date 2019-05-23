@@ -1,4 +1,4 @@
-import { ASSIGN_WORKER, REMOVE_WORKER, SET_PRIORITY, SET_STATUS } from '../constants';
+import {ASSIGN_WORKER, PAUSE_WORKING, REMOVE_WORKER, SET_PRIORITY, SET_STATUS, START_WORKING} from '../constants';
 
 export const assignWorker = ({ id }) => ({
     type: ASSIGN_WORKER,
@@ -20,9 +20,21 @@ const setProcessStatus = ({ id, assigned, status }) => ({
         status,
     },
 });
-export const runProcess = ({ id }) => setProcessStatus({ id, assigned: true, status: 'Running' });
-export const suspendProcess = ({ id }) =>
-    setProcessStatus({ id, assigned: false, status: 'Unassigned' });
+
+export const runProcess = ({id}) => ({
+    type: START_WORKING,
+    payload: {
+        id
+    }
+});
+
+export const suspendProcess = ({id}) => ({
+    type: PAUSE_WORKING,
+    payload: {
+        id
+    }
+});
+
 
 export const setProcessPriority = ({ id, priority }) => ({
     type: SET_PRIORITY,

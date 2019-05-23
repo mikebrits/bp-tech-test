@@ -28,7 +28,7 @@ export const Pane = styled.div`
 
 export const Card = styled(Pane)`
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
-    border: 0.5px solid #979797;
+    border: ${({ theme }) => theme.borders.standard};
     border-radius: ${({ theme }) => theme.borderRadius};
     overflow: hidden;
 `;

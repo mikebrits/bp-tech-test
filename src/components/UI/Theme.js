@@ -58,7 +58,7 @@ export const cards = {
     `,
 };
 
-export const borderRadius = '10px 10px 20px 10px;';
+export const borderRadius = '5px;';
 
 const theme = {
     colors,
