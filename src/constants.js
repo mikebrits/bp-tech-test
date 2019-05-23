@@ -15,6 +15,9 @@ export const PAUSE_WORKING = 'PAUSE_WORKING';
 //Machine Action - This simulates time going by
 export const TICK = 'TICK';
 
+export const UPDATE_SEARCH_TERM = 'UPDATE_SEARCH_TERM';
+
+
 // General Constants
 export const MAX_PROCESS_WORKERS = 25;
 export const MAX_TOTAL_WORKERS = 200;

@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-flow: column;
-    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 8px;
 `;

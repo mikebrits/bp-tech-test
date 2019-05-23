@@ -6,3 +6,5 @@ export const getFilteredProcesses = searchTerm => state =>
             process.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             process.description.toLowerCase().includes(searchTerm.toLowerCase()),
     );
+
+export const getSearchTerm = state => state.general.searchTerm;

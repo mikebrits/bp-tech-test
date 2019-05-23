@@ -1,6 +1,7 @@
 import {
     ASSIGN_WORKER,
-    MAX_PROCESS_WORKERS, PAUSE_WORKING,
+    MAX_PROCESS_WORKERS,
+    PAUSE_WORKING,
     REMOVE_WORKER,
     SET_PRIORITY,
     SET_STATUS,
@@ -24,7 +25,7 @@ const initialState = {
             startTime: null,
             totalTime: 0,
             tasks: [],
-            running: false
+            running: false,
         },
         {
             id: 2,
@@ -38,7 +39,7 @@ const initialState = {
             startTime: null,
             totalTime: 0,
             tasks: [],
-            running: false
+            running: false,
         },
         {
             id: 3,
@@ -52,7 +53,7 @@ const initialState = {
             startTime: null,
             totalTime: 0,
             tasks: [],
-            running: false
+            running: false,
         },
     ],
 };

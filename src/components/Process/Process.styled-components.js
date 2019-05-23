@@ -3,7 +3,7 @@ import { Card } from '../UI/Pane';
 
 export const Container = styled(Card)`
     width: 720px;
-    margin: 16px 0;
+    margin: 8px 0;
 `;
 
 export const Details = styled.div`

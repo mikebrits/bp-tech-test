@@ -3,15 +3,22 @@ import { Container } from './StatusBar.styled-components';
 import IconButton from '../IconButton';
 import { Popover } from '../UI/Popover';
 import { Menu, MenuItem } from '../UI/Pane';
-import PrioritySetter from "../PrioritySetter";
+import PrioritySetter from '../PrioritySetter';
 
-const StatusBar = ({ status, onArchive, onAutoAssign, onSchedule, onSelectWorkers, onSetPriority }) => {
+const StatusBar = ({
+    status,
+    onArchive,
+    onAutoAssign,
+    onSchedule,
+    onSelectWorkers,
+    onSetPriority,
+}) => {
     const anchorRef = useRef(null);
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [settingPriority, setSettingPriority] = useState(false);
     return (
         <Container>
-            <div style={{marginRight: 8}} ref={anchorRef} onClick={() => setPopoverOpen(true)}>
+            <div style={{ marginRight: 8 }} ref={anchorRef} onClick={() => setPopoverOpen(true)}>
                 <IconButton name="cog" />
             </div>
             <Popover
@@ -23,7 +30,7 @@ const StatusBar = ({ status, onArchive, onAutoAssign, onSchedule, onSelectWorker
             >
                 <Menu>
                     {settingPriority ? (
-                        <PrioritySetter onSetPriority={onSetPriority}/>
+                        <PrioritySetter onSetPriority={onSetPriority} />
                     ) : (
                         <>
                             <MenuItem onClick={() => setSettingPriority(true)}>

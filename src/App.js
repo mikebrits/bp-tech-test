@@ -5,6 +5,7 @@ import rootReducer from './reducers';
 import Processes from './components/Processes';
 import { ThemeProvider } from 'styled-components';
 import Theme from './components/UI/Theme';
+import Header from "./components/Header";
 
 const store = createStore(
     rootReducer,
@@ -20,6 +21,7 @@ function App() {
         <Provider store={store}>
             <ThemeProvider theme={Theme}>
                 <div className="App">
+                    <Header/>
                     <Processes />
                 </div>
             </ThemeProvider>

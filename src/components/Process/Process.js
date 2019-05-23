@@ -35,7 +35,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                     <Description>
                         <Text>{description}</Text>
                     </Description>
-                    <ProgressBar percentageComplete={67} />
+                    {running && <ProgressBar percentageComplete={67} />}
                 </Details>
                 <Actions>
                     <PlayPauseButton
@@ -52,7 +52,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                                 onAssign={onAssignWorker}
                                 onRemove={onRemoveWorker}
                             />
-                            <Divider margin={4}/>
+                            <Divider margin={4} />
                             <Priority rating={priority} />
                         </>
                         <StatusBar status={status} onSetPriority={onSetPriority} />
