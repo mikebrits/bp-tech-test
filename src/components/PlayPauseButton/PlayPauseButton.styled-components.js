@@ -23,4 +23,9 @@ export const Button = styled.div`
     align-items: center;
     cursor: pointer;
     pointer-events: all;
+    
+    ${({disabled}) => disabled && `
+        color: #ddd;
+        cursor: default; 
+    `}
 `;

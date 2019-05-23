@@ -27,6 +27,7 @@ const initialState = {
     computationRemaining: 0,
     percentageComplete: 0,
     timeRemaining: 0,
+    icon: 'cog'
 };
 
 export default (state = initialState, action) => {

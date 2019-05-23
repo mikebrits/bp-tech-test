@@ -26,6 +26,7 @@ const initialState = {
             totalTime: 100,
             tasks: [],
             running: false,
+            icon: 'coffee'
         },
         {
             id: 2,
@@ -40,6 +41,7 @@ const initialState = {
             totalTime: 50,
             tasks: [],
             running: false,
+            icon: 'ticket-alt'
         },
         {
             id: 3,
@@ -54,6 +56,7 @@ const initialState = {
             totalTime: 200,
             tasks: [],
             running: false,
+            icon: 'pizza-slice'
         },
     ],
 };

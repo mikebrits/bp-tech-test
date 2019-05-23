@@ -15,6 +15,7 @@ import StatusBar from '../StatusBar';
 import PlayPauseButton from '../PlayPauseButton';
 import { Divider } from '../UI/Divider';
 import IconButton from '../IconButton';
+import Icon from "../Icon";
 
 const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSetPriority }) => {
     const {
@@ -28,13 +29,15 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
         running,
         percentageComplete,
         timeRemaining,
+        icon
     } = data;
     const [statsVisible, setStatsVisible] = useState(false);
     return (
         <Container>
             <Row>
                 <Details>
-                    <Text bold>{name}</Text>
+                    <Icon name={icon} />
+                    <Text bold margin={'0 0 0 8px'}>{name}</Text>
                     <Divider border />
                     <Description>
                         <Text>{description}</Text>
@@ -60,6 +63,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                 </Details>
                 <Actions>
                     <PlayPauseButton
+                        disabled={!assigned}
                         playing={running}
                         onClick={() => {
                             running ? onSuspend() : onRun();
