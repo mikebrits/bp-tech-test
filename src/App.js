@@ -6,7 +6,13 @@ import Processes from './components/Processes';
 import { ThemeProvider } from 'styled-components';
 import Theme from './components/UI/Theme';
 
-const store = createStore(rootReducer);
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
+        // actionSanitizer,
+        // stateSanitizer: state => ({...state, graph: {...state.graph, nodeRefs: 'Node refs'}})
+    }),
+);
 
 function App() {
     return (
