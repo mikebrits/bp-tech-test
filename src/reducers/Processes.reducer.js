@@ -1,5 +1,5 @@
 import {
-    ASSIGN_WORKER,
+    ASSIGN_WORKER, AUTO_ASSIGN,
     MAX_PROCESS_WORKERS,
     PAUSE_WORKING,
     REMOVE_WORKER,
@@ -66,6 +66,7 @@ export default (state = initialState, action) => {
         case SET_STATUS:
         case START_WORKING:
         case PAUSE_WORKING:
+        case AUTO_ASSIGN:
             const { id } = action.payload;
             return {
                 ...state,

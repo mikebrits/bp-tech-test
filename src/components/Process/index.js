@@ -2,7 +2,7 @@ import Process from './Process';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import {
-    assignWorker,
+    assignWorker, autoAssign,
     removeWorker,
     runProcess,
     setProcessPriority,
@@ -30,6 +30,7 @@ export default ({ data }) => {
             }}
             onSetPriority={priority => {
                 dispatch(setProcessPriority({ id, priority }));
+                dispatch(autoAssign({id, priority}));
             }}
         />
     );

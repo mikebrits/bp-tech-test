@@ -1,5 +1,5 @@
 import {
-    ASSIGN_WORKER,
+    ASSIGN_WORKER, AUTO_ASSIGN,
     MAX_PROCESS_WORKERS,
     PAUSE_WORKING,
     REMOVE_WORKER,
@@ -53,6 +53,13 @@ export default (state = initialState, action) => {
                     state.currentWorkers < state.maxWorkers
                         ? state.currentWorkers + 1
                         : state.currentWorkers,
+            };
+        case AUTO_ASSIGN:
+            return {
+                ...state,
+                status: state.status === 'Unassigned' ? 'Assigned' : state.status,
+                assigned: true,
+                currentWorkers: action.payload.priority * 5
             };
         case REMOVE_WORKER:
             return {

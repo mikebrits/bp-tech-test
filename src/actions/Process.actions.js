@@ -1,5 +1,5 @@
 import {
-    ASSIGN_WORKER,
+    ASSIGN_WORKER, AUTO_ASSIGN,
     PAUSE_WORKING,
     REMOVE_WORKER,
     SET_PRIORITY,
@@ -54,5 +54,13 @@ export const tick = () => ({
     type: TICK,
     payload: {
         
+    }
+});
+
+export const autoAssign = ({id, priority}) => ({
+    type: AUTO_ASSIGN,
+    payload: {
+        id,
+        priority
     }
 });
