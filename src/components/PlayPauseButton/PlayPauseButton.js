@@ -6,7 +6,7 @@ const PlayPauseButton = ({ playing, onClick = () => {} }) => {
     return (
         <Container onClick={onClick}>
             <Button>
-                <Icon size={10} name={playing ? 'pause' : 'play'}  />
+                <Icon size={10} name={playing ? 'pause' : 'play'} />
             </Button>
         </Container>
     );

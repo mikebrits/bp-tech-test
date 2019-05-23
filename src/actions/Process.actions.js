@@ -7,7 +7,6 @@ export const assignWorker = ({ id }) => ({
     },
 });
 
-
 export const removeWorker = ({ id }) => ({
     type: REMOVE_WORKER,
     payload: { id },
