@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Details, Description, Actions } from './Process.styled-components';
 import { Heading, Subheading, Text } from '../UI/Typography';
 import ProgressBar from '../ProgressBar';
-import { Row, View } from '../UI/Pane';
+import {Col, Row, View} from '../UI/Pane';
 import WorkerSetter from '../WorkerSetter';
 import Priority from '../Priority';
 import StatusBar from '../StatusBar';
@@ -21,11 +21,11 @@ const Process = ({ data }) => {
                     <ProgressBar percentageComplete={67} />
                 </Details>
                 <Actions>
-                    <PlayPauseButton playing={!assigned} />
-                    <View padding="0 0 0 8">
+                    <PlayPauseButton playing={assigned} />
+                    <Col padding="0 0 0 24" align="center">
                         <WorkerSetter activeWorkers={currentWorkers} maxWorkers={maxWorkers} />
                         <Priority rating={priority} />
-                    </View>
+                    </Col>
                     <StatusBar status={status} />
                 </Actions>
             </Row>

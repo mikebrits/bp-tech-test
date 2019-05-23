@@ -19,4 +19,5 @@ export const Actions = styled.div`
     width: 20%;
     border-left: ${({ theme }) => theme.borders.standard};
     position: relative;
+    height: 100%;
 `;

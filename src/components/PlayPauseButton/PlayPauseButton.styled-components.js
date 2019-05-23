@@ -10,12 +10,13 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.div`
-    background: ${({theme}) => theme.colors.paneBG};
+    background: ${({ theme }) => theme.colors.paneBG};
     height: 36px;
     width: 36px;
     border-radius: 36px;
-    border: ${({theme}) => theme.borders.standard};
+    border: ${({ theme }) => theme.borders.standard};
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 `;

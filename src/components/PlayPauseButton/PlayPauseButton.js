@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button, Container } from './PlayPauseButton.styled-components';
+import Icon from '../Icon';
 
-const PlayPauseButton = ({ playing, onClick }) => {
+const PlayPauseButton = ({ playing, onClick = () => {} }) => {
     return (
         <Container>
-            <Button>P</Button>
+            <Button>
+                <Icon size={10} name={playing ? 'pause' : 'play'} onClick={onClick} />
+            </Button>
         </Container>
     );
 };
