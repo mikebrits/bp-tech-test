@@ -4,7 +4,8 @@ import {
     REMOVE_WORKER,
     SET_PRIORITY,
     SET_STATUS,
-    START_WORKING, TICK,
+    START_WORKING,
+    TICK,
 } from '../constants';
 import WorkerReducer from './Workers.reducer';
 
@@ -35,9 +36,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 currentWorkers:
-                    state.currentWorkers > 0
-                        ? state.currentWorkers - 1
-                        : state.currentWorkers,
+                    state.currentWorkers > 0 ? state.currentWorkers - 1 : state.currentWorkers,
             };
         case SET_PRIORITY:
             return {
@@ -48,12 +47,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 assigned: action.payload.assigned,
-                status: action.payload.status
+                status: action.payload.status,
             };
         case TICK:
             return {
                 ...state,
-                workers: state.workers.map(worker => WorkerReducer(worker, action))
+                workers: state.workers.map(worker => WorkerReducer(worker, action)),
             };
         default:
             return state;

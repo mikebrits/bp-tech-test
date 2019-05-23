@@ -1,0 +1,11 @@
+import { call, put, takeEvery } from 'redux-saga/effects';
+{{#if constants}} import { {{constantCase name}} } from './{{properCase name}}.constants'{{/if}}
+{{#if actions}} import { defaultAction } from './{{properCase name}}.actions'{{/if}}
+
+export const defaultSaga = function*() {
+    {{#if actions}} yield put(defaultAction);{{/if}}
+};
+
+export default [takeEvery( {{#if constants}} {{constantCase name}} {{else}} '{{constantCase name}}'{{/if}}, defaultSaga)];
+
+

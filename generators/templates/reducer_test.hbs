@@ -1,0 +1,7 @@
+import {reducer, defaultState} from '../{{properCase name}}.reducer';
+
+describe('{{properCase name}} Reducer', () => {
+    it('returns default state when an unknown action type is received', () => {
+        expect(reducer(undefined, {type: 'fake'})).toEqual(defaultState);
+    });
+});

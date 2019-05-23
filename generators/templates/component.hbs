@@ -1,0 +1,19 @@
+import React from 'react';
+{{#if styled}}import { Container } from './{{properCase name}}.styled-components';{{/if}}
+
+const {{properCase name}} = ({ {{#each props as |prop|}}{{prop.name}}{{#unless prop.isRequired}}= null{{/unless}},{{/each}} } ) => {
+return(
+{{#if styled}}
+    <Container>
+        {{name}}
+    </Container>
+
+{{else}}
+    <div>
+        {{name}}
+    </div>
+{{/if}}
+);
+};
+
+export default {{ properCase name }};

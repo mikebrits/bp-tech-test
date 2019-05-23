@@ -1,0 +1,12 @@
+{{#if constants}} import { {{constantCase name}} } from './{{properCase name}}.constants'{{/if}}
+export const defaultState = {};
+
+export const reducer = (state = defaultState, action) => {
+    switch(action.type){
+        {{#if constants}}case {{constantCase name}}:{{/if}}
+        default:
+            return state;
+    }
+};
+
+export default { {{properCase name}} : reducer };

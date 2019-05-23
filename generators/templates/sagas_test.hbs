@@ -1,0 +1,11 @@
+import {defaultSaga} from '../{{properCase name}}.sagas';
+{{#if actions}} import { defaultAction } from '../{{properCase name}}.actions'{{/if}}
+import { call, put, takeEvery } from 'redux-saga/effects';
+
+describe('{{properCase name}} Sagas', () => {
+    it('runs the default saga', () => {
+        const gen = defaultSaga();
+        {{#if actions}}expect(gen.next()).toEqual(put(defaultAction));{{/if}}
+        expect(gen.next()).toEqual({ done: true, value: undefined });
+    });
+});

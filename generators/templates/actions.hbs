@@ -1,0 +1,5 @@
+{{#if constants}} import { {{constantCase name}} } from './{{properCase name}}.constants'{{/if}}
+
+export const defaultAction = (action) => ({
+    type: {{#if constants}} {{constantCase name}} {{else}} '{{constantCase name}}'{{/if}}
+});

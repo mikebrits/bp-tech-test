@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import Processes from './Processes.reducer';
+import processes from './Processes.reducer';
 
-export default combineReducers({ Processes });
+export default combineReducers({ processes });

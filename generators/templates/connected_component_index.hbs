@@ -1,0 +1,19 @@
+import { connect, compose } from 'react-redux';
+import {{properCase name}} from './{{properCase name}}';
+{{#if realtime}} import RealTime from 'realtime';{{/if}}
+
+const mapStateToProps = state => ({});
+const mapDispatchToProps = {};
+
+{{#if realtime}}
+const RealTimeOptions = {
+    id: "{{properCase name}}"
+    debug: false,
+    model : () => ({})
+};
+{{/if}}
+
+export default compose(
+    connect( mapStateToProps, mapDispatchToProps),
+    {{#if realtime}}RealTime(RealTimeOptions){{/if}}
+)({{properCase name}});
