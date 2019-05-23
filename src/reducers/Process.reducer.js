@@ -1,5 +1,6 @@
 import {
-    ASSIGN_WORKER, AUTO_ASSIGN,
+    ASSIGN_WORKER,
+    AUTO_ASSIGN,
     MAX_PROCESS_WORKERS,
     PAUSE_WORKING,
     REMOVE_WORKER,
@@ -23,8 +24,9 @@ const initialState = {
     tasks: [],
     running: false,
     totalTime: 0,
-    timeRemaining: 0,
+    computationRemaining: 0,
     percentageComplete: 0,
+    timeRemaining: 0,
 };
 
 export default (state = initialState, action) => {
@@ -35,7 +37,10 @@ export default (state = initialState, action) => {
                       ...state,
                       running: true,
                       status: 'Running',
-                      timeRemaining: state.timeRemaining || state.totalTime,
+                      computationRemaining: state.computationRemaining || state.totalTime,
+                      timeRemaining: Math.floor(
+                          (state.computationRemaining || state.totalTime) / state.currentWorkers,
+                      ),
                   }
                 : state;
         case PAUSE_WORKING:
@@ -59,7 +64,7 @@ export default (state = initialState, action) => {
                 ...state,
                 status: state.status === 'Unassigned' ? 'Assigned' : state.status,
                 assigned: true,
-                currentWorkers: action.payload.priority * 5
+                currentWorkers: action.payload.priority * 5,
             };
         case REMOVE_WORKER:
             return {
@@ -85,16 +90,17 @@ export default (state = initialState, action) => {
             if (!state.running) {
                 return state;
             }
-            const timeRemaining =
-                state.timeRemaining >= state.currentWorkers
-                    ? state.timeRemaining - state.currentWorkers
+            const computationRemaining =
+                state.computationRemaining >= state.currentWorkers
+                    ? state.computationRemaining - state.currentWorkers
                     : 0;
             return {
                 ...state,
-                timeRemaining,
-                percentageComplete: 100 - (timeRemaining / state.totalTime) * 100,
-                status: timeRemaining === 0 ? 'Completed' : state.status,
-                running: timeRemaining !== 0,
+                computationRemaining,
+                percentageComplete: 100 - (computationRemaining / state.totalTime) * 100,
+                status: computationRemaining === 0 ? 'Completed' : state.status,
+                running: computationRemaining !== 0,
+                timeRemaining: Math.floor(state.computationRemaining / state.currentWorkers),
             };
         default:
             return state;

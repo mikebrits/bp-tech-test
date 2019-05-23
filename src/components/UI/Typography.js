@@ -44,7 +44,7 @@ export const Subheading = styled.h2`
 export const Text = styled.span`
     color: ${props => getColor(props)};
     margin: ${({ margin = 0 }) => margin};
-    font-size: ${({ theme, size }) => size || theme.fontSizes.body};
+    font-size: ${({ theme, size }) => size || 'inherit'};
     font-weight: ${props => getWeight(props)};
 `;
 

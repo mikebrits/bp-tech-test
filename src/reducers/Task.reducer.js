@@ -1,7 +1,7 @@
 const initialState = {
     id: null,
     process: null,
-    timeRemaining: 0,
+    computationRemaining: 0,
     percentageComplete: 0,
     workers: 0, // Could be an array?
 };
