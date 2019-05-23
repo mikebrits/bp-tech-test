@@ -9,6 +9,9 @@ export const UNARCHIVE_PROCESS = 'UNARCHIVE_PROCESS';
 export const ASSIGN_WORKER = 'ASSIGN_WORKER';
 export const REMOVE_WORKER = 'REMOVE_WORKER';
 export const SET_PRIORITY = 'SET_PRIORITY';
+export const SET_STATUS = 'SET_STATUS';
+export const START_WORKING = 'START_WORKING';
+
 
 //Machine Action - This simulates time going by
 export const TICK = 'TICK';
