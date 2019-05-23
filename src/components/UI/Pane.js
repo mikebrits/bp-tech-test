@@ -32,3 +32,23 @@ export const Card = styled(Pane)`
     border-radius: ${({ theme }) => theme.borderRadius};
     overflow: hidden;
 `;
+
+export const Menu = styled(Card)`
+    border-radius: 3px !important;
+    border: ${({ theme }) => theme.borders.highlight};
+`;
+
+export const MenuItem = styled(View)`
+    border-bottom: ${({ theme }) => theme.borders.highlight};
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: center;
+    &:hover {
+        background: ${({ theme }) => theme.colors.primary};
+        color: ${({ theme }) => theme.colors.inverse};
+    }
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+`;

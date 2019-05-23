@@ -1,9 +1,9 @@
-import React, { useEffect, useCallback, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Card } from './Pane';
+import { View } from './Pane';
 import styled from 'styled-components/macro';
 
-const PopoverContent = styled(Card)`
+const PopoverContent = styled(View)`
     position: absolute;
 `;
 
@@ -24,8 +24,8 @@ export const Popover = ({
     const cardDom = useRef(null);
     // Using Memos here because otherwise the functions get regenerated each render,
     // and event handlers would not identify them
-    const clickHandler = useCallback(() => handleClick(), [handleClick]);
-    const positionFunction = useCallback(() => updatePortalPosition(), [updatePortalPosition]);
+    const clickHandler = useMemo(() => handleClick, [handleClick]);
+    const positionFunction = useMemo(() => updatePortalPosition, [updatePortalPosition]);
 
     function handleClick(e) {
         if (
@@ -135,7 +135,7 @@ export const Popover = ({
                 window.removeEventListener('scroll', positionFunction, true);
             };
         },
-        [open, ],
+        [open],
     );
 
     return open

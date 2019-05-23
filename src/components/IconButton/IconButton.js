@@ -2,14 +2,12 @@ import React from 'react';
 import { Container } from './IconButton.styled-components';
 import Icon from '../Icon';
 
-const IconButton = React.forwardRef((props, ref) => {
+const IconButton = props => {
     return (
-        <div ref={ref}>
-            <Container onClick={props.onClick || null}>
-                <Icon {...props} />
-            </Container>
-        </div>
+        <Container {...props}>
+            <Icon {...props} />
+        </Container>
     );
-});
+};
 
 export default IconButton;
