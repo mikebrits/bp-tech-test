@@ -4,9 +4,9 @@ export const Container = styled.div`
     display: block;
 `;
 
-export  const Input = styled.input`
+export const Input = styled.input`
     border: 0;
-    border-bottom: ${({theme}) => theme.borders.standard};
+    border-bottom: ${({ theme }) => theme.borders.standard};
     width: 280px;
     padding: 4px;
     margin-left: 8px;

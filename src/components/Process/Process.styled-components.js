@@ -12,8 +12,7 @@ export const Details = styled.div`
     width: 75%;
 `;
 
-export const Name = styled(Text)`
-`;
+export const Name = styled(Text)``;
 
 export const Description = styled(Text)`
     min-height: 40px;

@@ -1,16 +1,17 @@
-import {UPDATE_SEARCH_TERM} from "../constants";
+import { UPDATE_SEARCH_TERM } from '../constants';
 
 const initialState = {
-    searchTerm: ''
+    searchTerm: '',
 };
 
 export default (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case UPDATE_SEARCH_TERM:
             return {
                 ...state,
-                searchTerm: action.payload.term
+                searchTerm: action.payload.term,
             };
-        default: return state;
+        default:
+            return state;
     }
-}
+};

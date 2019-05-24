@@ -1,10 +1,12 @@
 import {
-    ASSIGN_WORKER, AUTO_ASSIGN,
+    ASSIGN_WORKER,
+    AUTO_ASSIGN,
     PAUSE_WORKING,
     REMOVE_WORKER,
     SET_PRIORITY,
     SET_STATUS,
-    START_WORKING, TICK,
+    START_WORKING,
+    TICK,
 } from '../constants';
 
 export const assignWorker = ({ id }) => ({
@@ -52,15 +54,13 @@ export const setProcessPriority = ({ id, priority }) => ({
 
 export const tick = () => ({
     type: TICK,
-    payload: {
-        
-    }
+    payload: {},
 });
 
-export const autoAssign = ({id, priority}) => ({
+export const autoAssign = ({ id, priority }) => ({
     type: AUTO_ASSIGN,
     payload: {
         id,
-        priority
-    }
+        priority,
+    },
 });

@@ -22,10 +22,10 @@ export const Bar = styled(Container)`
 `;
 
 export const ProgressText = styled.div`
-  position: absolute;
-  //mix-blend-mode: difference;
-  color: ${({color}) => color};
-  z-index: ${({index = 0}) => index};
-  font-size: 10px;
-  padding: 2px;
+    position: absolute;
+    //mix-blend-mode: difference;
+    color: ${({ color }) => color};
+    z-index: ${({ index = 0 }) => index};
+    font-size: 10px;
+    padding: 2px;
 `;

@@ -13,12 +13,10 @@ export const START_WORKING = 'START_WORKING';
 export const PAUSE_WORKING = 'PAUSE_WORKING';
 export const AUTO_ASSIGN = 'AUTO_ASSIGN';
 
-
 //Machine Action - This simulates time going by
 export const TICK = 'TICK';
 
 export const UPDATE_SEARCH_TERM = 'UPDATE_SEARCH_TERM';
-
 
 // General Constants
 export const MAX_PROCESS_WORKERS = 25;

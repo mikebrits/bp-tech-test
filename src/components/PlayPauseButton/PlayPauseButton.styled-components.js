@@ -14,6 +14,7 @@ export const Container = styled.div`
 
 export const Button = styled.div`
     background: ${({ theme }) => theme.colors.paneBG};
+    color: ${({ theme }) => theme.colors.primary};
     height: 36px;
     width: 36px;
     border-radius: 36px;
@@ -23,9 +24,11 @@ export const Button = styled.div`
     align-items: center;
     cursor: pointer;
     pointer-events: all;
-    
-    ${({disabled}) => disabled && `
+
+    ${({ disabled }) =>
+        disabled &&
+        `
         color: #ddd;
         cursor: default; 
-    `}
+    `};
 `;

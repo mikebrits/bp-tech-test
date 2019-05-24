@@ -1,5 +1,6 @@
 import {
-    ASSIGN_WORKER, AUTO_ASSIGN,
+    ASSIGN_WORKER,
+    AUTO_ASSIGN,
     MAX_PROCESS_WORKERS,
     PAUSE_WORKING,
     REMOVE_WORKER,
@@ -26,7 +27,7 @@ const initialState = {
             totalTime: 100,
             tasks: [],
             running: false,
-            icon: 'coffee'
+            icon: 'coffee',
         },
         {
             id: 2,
@@ -41,7 +42,7 @@ const initialState = {
             totalTime: 50,
             tasks: [],
             running: false,
-            icon: 'ticket-alt'
+            icon: 'ticket-alt',
         },
         {
             id: 3,
@@ -56,7 +57,7 @@ const initialState = {
             totalTime: 200,
             tasks: [],
             running: false,
-            icon: 'pizza-slice'
+            icon: 'pizza-slice',
         },
     ],
 };

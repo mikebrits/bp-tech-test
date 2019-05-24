@@ -6,8 +6,9 @@ import Theme from '../../../components/UI/Theme';
 import { ThemeProvider } from 'styled-components';
 import { shallow, mount } from 'enzyme';
 import { ActiveWorkers } from '../../WorkerSetter/WorkerSetter.styled-components';
-import {Name, Description} from "../Process.styled-components";
+import { Name, Description } from '../Process.styled-components';
 import sinon from 'sinon';
+import PlayPauseButton from '../../../components/PlayPauseButton';
 
 const data = {
     id: 123,
@@ -37,7 +38,7 @@ const WrappedProcess = props => {
 };
 
 describe('Process Component', () => {
-    const defaultProcess = (extraData) =>  mount(<WrappedProcess data={{...data, ...extraData}} />);
+    const defaultProcess = extraData => mount(<WrappedProcess data={{ ...data, ...extraData }} />);
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
@@ -52,25 +53,42 @@ describe('Process Component', () => {
     });
 
     it('should render the provided name and description', function() {
-        expect(defaultProcess().find(Name).text()).toBe(data.name);
-        expect(defaultProcess().find(Description).text()).toBe(data.description);
+        expect(
+            defaultProcess()
+                .find(Name)
+                .text(),
+        ).toBe(data.name);
+        expect(
+            defaultProcess()
+                .find(Description)
+                .text(),
+        ).toBe(data.description);
     });
 
-    it('should call the onAssignWorker when the + button is clicked', function () {
+    it('should call the onAssignWorker when the + button is clicked', function() {
         const onButtonClick = sinon.spy();
         const wrapper = mount(<WrappedProcess data={data} onAssignWorker={onButtonClick} />);
-        const button = wrapper.find("#plus-worker-button").at(1);
+        const button = wrapper.find('#plus-worker-button').at(1);
         button.simulate('click');
         expect(onButtonClick.called).toBe(true);
     });
 
-    it('should call the onRemoveWorker when the - button is clicked', function () {
+    it('should call the onRemoveWorker when the - button is clicked', function() {
         const onButtonClick = sinon.spy();
         const wrapper = mount(<WrappedProcess data={data} onRemoveWorker={onButtonClick} />);
-        const button = wrapper.find("#minus-worker-button").at(1);
+        const button = wrapper.find('#minus-worker-button').at(1);
         button.simulate('click');
         expect(onButtonClick.called).toBe(true);
     });
 
-
+    it('should call the play if the process is assigned', function() {
+        const onButtonClick = sinon.spy();
+        const wrapper = mount(
+            <WrappedProcess data={data} onRun={onButtonClick} onSuspend={onButtonClick} />,
+        );
+        const button = wrapper.find(PlayPauseButton);
+        console.log(button.debug());
+        button.simulate('click');
+        expect(onButtonClick.called).toBe(true);
+    });
 });

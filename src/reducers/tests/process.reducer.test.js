@@ -129,7 +129,7 @@ describe('Process reducer', function() {
             ...outcome,
             computationRemaining: 6,
             percentageComplete: 40,
-            timeRemaining: 2
+            timeRemaining: 2,
         });
 
         // Add more workers than is needed and finish the task
@@ -146,9 +146,7 @@ describe('Process reducer', function() {
             assigned: false,
             currentWorkers: 0,
             running: false,
-            status: 'Completed'
+            status: 'Completed',
         });
-
-
     });
 });

@@ -27,7 +27,7 @@ const initialState = {
     computationRemaining: 0,
     percentageComplete: 0,
     timeRemaining: 0,
-    icon: 'cog'
+    icon: 'cog',
 };
 
 export default (state = initialState, action) => {
@@ -66,7 +66,7 @@ export default (state = initialState, action) => {
                 status: state.status === 'Unassigned' ? 'Assigned' : state.status,
                 assigned: true,
                 currentWorkers: action.payload.priority * 5,
-                priority: action.payload.priority
+                priority: action.payload.priority,
             };
         case REMOVE_WORKER:
             return {
