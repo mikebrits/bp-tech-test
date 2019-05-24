@@ -9,6 +9,8 @@ import {
     setProcessPriority,
     suspendProcess,
 } from '../../actions/Process.actions';
+import {emit} from "../../utils/socket";
+import {ASSIGN_WORKER} from "../../constants";
 
 export default ({ data }) => {
     const dispatch = useDispatch();
@@ -19,6 +21,7 @@ export default ({ data }) => {
             data={data}
             onAssignWorker={() => {
                 dispatch(assignWorker({ id }));
+                emit(ASSIGN_WORKER, {id});
             }}
             onRemoveWorker={() => {
                 dispatch(removeWorker({ id }));

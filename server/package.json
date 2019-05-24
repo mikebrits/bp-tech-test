@@ -21,6 +21,6 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "build": "npx webpack --config webpack.config.js"
+    "build": "npx webpack --config webpack.config.js --watch"
   }
 }
