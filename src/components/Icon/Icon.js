@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import {getColor} from "../UI/Typography";
+import { getColor } from '../UI/Typography';
 
 const Icon = ({ name, type = 'solid', size = 'inherit', color, pulse, style, ...rest }) => {
     const types = {
@@ -16,7 +16,7 @@ const Icon = ({ name, type = 'solid', size = 'inherit', color, pulse, style, ...
     return (
         <Container
             color={color}
-            style={{ fontSize: size,  ...style}}
+            style={{ fontSize: size, ...style }}
             className={`${types[type] || defaultType} fa-${name} ${pulse && 'fa-pulse'}`}
             {...rest}
         />
@@ -24,8 +24,7 @@ const Icon = ({ name, type = 'solid', size = 'inherit', color, pulse, style, ...
 };
 
 const Container = styled.i`
-    color: ${({color, ...props}) => color || getColor(props)};
+    color: ${({ color, ...props }) => color || getColor(props)};
 `;
-
 
 export default Icon;

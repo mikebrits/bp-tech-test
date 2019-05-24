@@ -8,7 +8,7 @@ import {
     Name,
 } from './Process.styled-components';
 import ProgressBar from '../ProgressBar';
-import {Col, Row, View} from '../UI/Pane';
+import { Col, Row, View } from '../UI/Pane';
 import WorkerSetter from '../WorkerSetter';
 import Priority from '../Priority';
 import StatusBar from '../StatusBar';

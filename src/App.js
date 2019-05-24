@@ -33,7 +33,7 @@ function App() {
 const Body = styled.div`
     height: 100vh;
     overflow: scroll;
-    background: ${({theme}) => theme.colors.pageBG};
+    background: ${({ theme }) => theme.colors.pageBG};
 `;
 
 export default App;

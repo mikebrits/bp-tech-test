@@ -8,7 +8,9 @@ const PrioritySetter = ({ onSetPriority }) => {
     const [highestPriority, setHighestPriority] = useState(0);
     return (
         <Container>
-            <Text highlight margin={'0 0 8px 0'}>Set Priority</Text>
+            <Text highlight margin={'0 0 8px 0'}>
+                Set Priority
+            </Text>
             <Row>
                 <IconButton
                     name="star"
