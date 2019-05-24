@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const getColor = ({ theme, primary, secondary, highlight, inverse }) => {
     switch (true) {

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const View = styled.div`
     padding: ${({ padding = 0 }) => padding + 'px'};

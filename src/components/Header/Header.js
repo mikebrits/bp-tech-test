@@ -9,9 +9,9 @@ const Header = ({}) => {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <Divider />
             <Container>
-                <IconButton name="bars" color="#005285" />
+                <IconButton name="bars" highlight />
                 <SearchBar />
-                <IconButton name="ellipsis-h" color="#005285" />
+                <IconButton name="ellipsis-h" highlight />
             </Container>
             <Divider border />
         </div>

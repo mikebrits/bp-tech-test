@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Card } from '../UI/Pane';
 import { Text } from '../UI/Typography';
 

@@ -6,6 +6,7 @@ import Processes from './components/Processes';
 import { ThemeProvider } from 'styled-components';
 import Theme from './components/UI/Theme';
 import Header from './components/Header';
+import styled from 'styled-components/macro';
 
 const store = createStore(
     rootReducer,
@@ -20,13 +21,19 @@ function App() {
     return (
         <Provider store={store}>
             <ThemeProvider theme={Theme}>
-                <div className="App">
+                <Body>
                     <Header />
                     <Processes />
-                </div>
+                </Body>
             </ThemeProvider>
         </Provider>
     );
 }
+
+const Body = styled.div`
+    height: 100vh;
+    overflow: scroll;
+    background: ${({theme}) => theme.colors.pageBG};
+`;
 
 export default App;

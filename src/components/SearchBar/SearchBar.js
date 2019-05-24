@@ -13,7 +13,7 @@ const SearchBar = () => {
 
     return (
         <Container>
-            <Icon name="search" color="#005285" />
+            <Icon name="search" highlight />
             <Input
                 value={searchTerm}
                 onChange={e => onChange(e.target.value)}

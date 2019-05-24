@@ -11,6 +11,7 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
             <Row justify="center" align="center">
                 <IconButton
                     id="minus-worker-button"
+                    highlight
                     onClick={onRemove}
                     size={8}
                     name="minus-circle"
@@ -21,6 +22,7 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                 </ActiveWorkers>
                 <IconButton
                     id="plus-worker-button"
+                    highlight
                     onClick={onAssign}
                     size={8}
                     name="plus-circle"

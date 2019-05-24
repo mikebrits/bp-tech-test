@@ -8,7 +8,7 @@ import {
     Name,
 } from './Process.styled-components';
 import ProgressBar from '../ProgressBar';
-import { Col, Row } from '../UI/Pane';
+import {Col, Row, View} from '../UI/Pane';
 import WorkerSetter from '../WorkerSetter';
 import Priority from '../Priority';
 import StatusBar from '../StatusBar';
@@ -16,6 +16,7 @@ import PlayPauseButton from '../PlayPauseButton';
 import { Divider } from '../UI/Divider';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import ActionsMenu from '../ActionsMenu';
 
 const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSetPriority }) => {
     const {
@@ -36,10 +37,17 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
         <Container>
             <Row>
                 <Details>
-                    <Icon name={icon} color="#c7c7c7" />
-                    <Name bold margin={'0 0 0 10px'}>
-                        {name}
-                    </Name>
+                    <Row justify="space-between">
+                        <View>
+                            <Icon name={icon} color="#c7c7c7" />
+                            <Name bold margin={'0 0 0 10px'}>
+                                {name}
+                            </Name>
+                        </View>
+                        <View>
+                            <ActionsMenu onSetPriority={onSetPriority} />
+                        </View>
+                    </Row>
                     <Divider border />
                     <Col justify="space-between">
                         <Description>{description}</Description>
