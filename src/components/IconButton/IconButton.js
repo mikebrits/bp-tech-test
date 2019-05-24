@@ -2,9 +2,9 @@ import React from 'react';
 import { Container } from './IconButton.styled-components';
 import Icon from '../Icon';
 
-const IconButton = props => {
+const IconButton = ({onClick, ...props}) => {
     return (
-        <Container {...props}>
+        <Container onClick={onClick} {...props}>
             <Icon {...props} />
         </Container>
     );

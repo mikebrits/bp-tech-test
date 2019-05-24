@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import {getColor} from "../UI/Typography";
 
-const Icon = ({ name, type = 'solid', size = 'inherit', color, ...rest }) => {
+const Icon = ({ name, type = 'solid', size = 'inherit', color, pulse, style, ...rest }) => {
     const types = {
         solid: 'fas',
         light: 'fal',
@@ -15,10 +15,10 @@ const Icon = ({ name, type = 'solid', size = 'inherit', color, ...rest }) => {
 
     return (
         <Container
-            {...rest}
             color={color}
-            style={{ fontSize: size }}
-            className={`${types[type] || defaultType} fa-${name}`}
+            style={{ fontSize: size,  ...style}}
+            className={`${types[type] || defaultType} fa-${name} ${pulse && 'fa-pulse'}`}
+            {...rest}
         />
     );
 };
