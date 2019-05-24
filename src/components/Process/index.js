@@ -1,5 +1,5 @@
 import Process from './Process';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {
     assignWorker,
@@ -9,18 +9,28 @@ import {
     setProcessPriority,
     suspendProcess,
 } from '../../actions/Process.actions';
-import {emit} from "../../utils/socket";
+import {socket, emit} from "../../utils/socket";
 import {ASSIGN_WORKER} from "../../constants";
 
 export default ({ data }) => {
     const dispatch = useDispatch();
-    const { id } = data;
+    const [process, setProcess] = useState(data);
+    const { id } = process;
+
+    useEffect(() => {
+        socket.on('refresh', (refreshedProcess) => {
+            if(id === refreshedProcess.id){
+                setProcess(refreshedProcess);
+                //dispatch(assignWorker({ id }));
+            }
+        });
+    }, []);
 
     return (
         <Process
-            data={data}
+            data={process}
             onAssignWorker={() => {
-                dispatch(assignWorker({ id }));
+
                 emit(ASSIGN_WORKER, {id});
             }}
             onRemoveWorker={() => {
