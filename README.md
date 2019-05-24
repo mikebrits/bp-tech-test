@@ -62,8 +62,8 @@ Again, apologies in advance.
  - Difficult to click + / - buttons
  - Border Scaling issues on stars
  - Progress bar inconsistent: changes from solid border to gradient
- - Text is difficult to read on the progress bar, it is small and does have sufficient contrast
- - Inconsistent Icon colors
+ - Text is difficult to read on the progress bar, it is small and does not have sufficient contrast
+ - Inconsistent icon colors
 
 Working with a theme makes these kinds of things easier to remedy in code, so I made some decisions here that would hopefully make these a bit more consistent.
 
