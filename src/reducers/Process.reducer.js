@@ -66,6 +66,7 @@ export default (state = initialState, action) => {
                 status: state.status === 'Unassigned' ? 'Assigned' : state.status,
                 assigned: true,
                 currentWorkers: action.payload.priority * 5,
+                priority: action.payload.priority
             };
         case REMOVE_WORKER:
             return {
@@ -105,7 +106,7 @@ export default (state = initialState, action) => {
                 currentWorkers: done ? 0 : state.currentWorkers,
                 assigned: !done,
                 priority: done ? 0 : state.priority,
-                timeRemaining: Math.floor(state.computationRemaining / state.currentWorkers),
+                timeRemaining: Math.floor(computationRemaining / state.currentWorkers),
             };
         default:
             return state;
