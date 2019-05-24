@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { Card } from '../UI/Pane';
 
 export const Container = styled(Card)`

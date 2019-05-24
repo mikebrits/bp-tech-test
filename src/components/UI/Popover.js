@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { View } from './Pane';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const PopoverContent = styled(View)`
     position: absolute;
