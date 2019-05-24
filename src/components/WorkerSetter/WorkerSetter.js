@@ -13,9 +13,9 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                     id="minus-worker-button"
                     highlight
                     onClick={onRemove}
-                    size={8}
+                    size={12}
                     name="minus-circle"
-                    style={{ margin: '-5px 15px 0 0' }}
+                    style={{ margin: '-5px 12px 0 0' }}
                 />
                 <ActiveWorkers>
                     {activeWorkers}/{maxWorkers}
@@ -24,9 +24,9 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                     id="plus-worker-button"
                     highlight
                     onClick={onAssign}
-                    size={8}
+                    size={12}
                     name="plus-circle"
-                    style={{ margin: '-5px 0 0 15px' }}
+                    style={{ margin: '-5px 0 0 12px' }}
                 />
             </Row>
         </Container>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from './PrioritySetter.styled-components';
-import { Subheading } from '../UI/Typography';
+import { Text } from '../UI/Typography';
 import IconButton from '../IconButton';
 import { Row } from '../UI/Pane';
 
@@ -8,7 +8,7 @@ const PrioritySetter = ({ onSetPriority }) => {
     const [highestPriority, setHighestPriority] = useState(0);
     return (
         <Container>
-            <Subheading margin={'0'}>Set Priority</Subheading>
+            <Text highlight margin={'0 0 8px 0'}>Set Priority</Text>
             <Row>
                 <IconButton
                     name="star"
