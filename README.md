@@ -90,6 +90,7 @@ While I didn't fix all of these, I made some small tweaks, but kept the overall 
 - Card Visual Hierarchy: I don't believe that labels are needed in order to convey the title and description of the cards, rather a clean hierarchy can be established that naturally describes them. 
 - The stars looked broken in the designs, so I used FontAwesome stars instead.
 
+![Before Screenshot](https://raw.githubusercontent.com/mikebrits/bp-tech-test/master/screenshots/Part%201.png)
 
 #### UX Changes:
 - I felt that the blur effect on the whole page when clicking an overflow menu would be a jarring experience for the user. If the desired effect is to completely ignore everything else on the page (but not get rid of it), and draw the users attention to some content, then use a modal. This paired with a settings / gear icon would make more sense, but the items in the modal would need to be relevant. For example, Archive would not make sense in a modal, but rather a context Popover menu.
@@ -101,6 +102,8 @@ While I didn't fix all of these, I made some small tweaks, but kept the overall 
 - Green is used for the Complete status. This jumps out and lets the user know immediately that their task is done.
 - Added an icon to the Process title. Now, I don't need to read the process name to know what I'm looking at. At a glance I am informed.
 - When toggling the progress stats, I have made it so light text is on a dark BG and vice versa.
+
+![After Screenshot](https://raw.githubusercontent.com/mikebrits/bp-tech-test/master/screenshots/Part%202.png)
 
 You'll notice that I kept the bar and the stats relatively similar. I wanted to show off a possible solution to the problem presented, but I actually think there is a better way to display the information, which I will present in person.
 
