@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './WorkerSetter.styled-components';
+import { ActiveWorkers, Container } from './WorkerSetter.styled-components';
 import { Text } from '../UI/Typography';
 import { Row } from '../UI/Pane';
 import IconButton from '../IconButton';
@@ -10,15 +10,17 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
             <Text>Workers Assigned</Text> <br />
             <Row justify="center" align="center">
                 <IconButton
+                    id="minus-worker-button"
                     onClick={onRemove}
                     size={8}
                     name="minus-circle"
                     style={{ margin: '-5px 15px 0 0' }}
                 />
-                <Text bold>
+                <ActiveWorkers>
                     {activeWorkers}/{maxWorkers}
-                </Text>
+                </ActiveWorkers>
                 <IconButton
+                    id="plus-worker-button"
                     onClick={onAssign}
                     size={8}
                     name="plus-circle"

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Card } from '../UI/Pane';
+import { Text } from '../UI/Typography';
 
 export const Container = styled(Card)`
     width: 720px;
@@ -11,7 +12,10 @@ export const Details = styled.div`
     width: 75%;
 `;
 
-export const Description = styled.div`
+export const Name = styled(Text)`
+`;
+
+export const Description = styled(Text)`
     min-height: 40px;
 `;
 

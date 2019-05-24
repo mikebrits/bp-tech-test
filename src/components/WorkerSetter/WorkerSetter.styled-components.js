@@ -5,6 +5,6 @@ export const Container = styled.div`
     display: block;
 `;
 
-const ActiveWorkers = styled(Text)`
-    
+export const ActiveWorkers = styled(Text)`
+    font-weight: bold;
 `;

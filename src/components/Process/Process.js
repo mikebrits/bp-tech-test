@@ -4,11 +4,10 @@ import {
     Details,
     Description,
     Actions,
-    ActionsWrapper,
+    ActionsWrapper, Name,
 } from './Process.styled-components';
-import { Text } from '../UI/Typography';
 import ProgressBar from '../ProgressBar';
-import { Col, Row, View } from '../UI/Pane';
+import { Row } from '../UI/Pane';
 import WorkerSetter from '../WorkerSetter';
 import Priority from '../Priority';
 import StatusBar from '../StatusBar';
@@ -37,10 +36,10 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
             <Row>
                 <Details>
                     <Icon name={icon} color="#c7c7c7"/>
-                    <Text bold margin={'0 0 0 10px'}>{name}</Text>
+                    <Name  bold margin={'0 0 0 10px'}>{name}</Name>
                     <Divider border />
                     <Description>
-                        <Text>{description}</Text>
+                        {description}
                     </Description>
                     {(status === 'Running' || status === 'Paused') && (
                         <Row align="center">
