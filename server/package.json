@@ -4,7 +4,23 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "esm": "^3.2.25",
     "express": "4.15.2",
+    "global": "^4.3.2",
+    "redux": "^4.0.1",
+    "rollup": "^1.12.3",
     "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "build": "npx webpack --config webpack.config.js"
   }
 }
