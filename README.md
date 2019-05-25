@@ -138,6 +138,7 @@ You'll notice that I kept the bar and the stats relatively similar. I wanted to 
 This is a new bit, the app wont work without it. So, from the project root (`bp-tech-test`):
 
     $ cd server
+    $ yarn
     $ yarn start
 
 ## 🙌 Final Note  
