@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useContext } from 'react';
 
 const initialState = {
     theme: 'dark',
+    searchTerm: ''
 };
 
 const StateContext = createContext(initialState);
@@ -12,6 +13,11 @@ const contextReducer = (state = initialState, action) => {
             return {
                 ...state,
                 theme: action.payload.theme,
+            };
+        case 'SET_SEARCH_TERM':
+            return {
+                ...state,
+                searchTerm: action.payload.searchTerm,
             };
         default:
             return state;
@@ -24,4 +30,4 @@ export const StateProvider = ({ children }) => (
     </StateContext.Provider>
 );
 
-export const useThemeValue = () => useContext(StateContext);
+export const useStateValue = () => useContext(StateContext);

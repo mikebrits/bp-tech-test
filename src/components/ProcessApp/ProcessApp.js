@@ -4,7 +4,7 @@ import DarkTheme from '../UI/DarkTheme';
 import Header from '../Header';
 import Processes from '../Processes';
 import { ThemeProvider } from 'styled-components';
-import { useThemeValue } from '../../utils/context';
+import { useStateValue } from '../../utils/context';
 import styled from 'styled-components/macro';
 
 const themes = {
@@ -13,7 +13,7 @@ const themes = {
 };
 
 const ProcessApp = () => {
-    const [{ theme }, dispatch] = useThemeValue();
+    const [{ theme }, dispatch] = useStateValue();
     console.log(theme);
     return (
         <ThemeProvider theme={themes[theme]}>

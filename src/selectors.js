@@ -1,4 +1,4 @@
-export const getProcesses = state => state.processes.processes;
+
 
 export const getFilteredProcesses = searchTerm => state =>
     state.processes.processes.filter(
@@ -7,4 +7,3 @@ export const getFilteredProcesses = searchTerm => state =>
             process.description.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
-export const getSearchTerm = state => state.general.searchTerm;
