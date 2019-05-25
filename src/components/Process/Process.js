@@ -18,7 +18,7 @@ import IconButton from '../IconButton';
 import Icon from '../Icon';
 import ActionsMenu from '../ActionsMenu';
 
-const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSetPriority }) => {
+const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onAutoAssign }) => {
     const {
         name,
         description,
@@ -45,7 +45,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                             </Name>
                         </View>
                         <View>
-                            <ActionsMenu onSetPriority={onSetPriority} />
+                            <ActionsMenu onSetPriority={onAutoAssign} />
                         </View>
                     </Row>
                     <Divider border />
@@ -90,7 +90,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onSet
                             <Divider margin={4} />
                             <Priority rating={priority} />
                         </>
-                        <StatusBar status={status} onSetPriority={onSetPriority} />
+                        <StatusBar status={status} />
                     </ActionsWrapper>
                 </Actions>
             </Row>

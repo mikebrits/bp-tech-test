@@ -28,6 +28,7 @@ const initialState = {
     percentageComplete: 0,
     timeRemaining: 0,
     icon: 'cog',
+    changed: false
 };
 
 export default (state = initialState, action) => {
@@ -90,7 +91,10 @@ export default (state = initialState, action) => {
             };
         case TICK:
             if (!state.running) {
-                return state;
+                return {
+                    ...state,
+                    changed: false,
+                };
             }
             const computationRemaining =
                 state.computationRemaining >= state.currentWorkers
@@ -107,6 +111,7 @@ export default (state = initialState, action) => {
                 assigned: !done,
                 priority: done ? 0 : state.priority,
                 timeRemaining: Math.floor(computationRemaining / state.currentWorkers),
+                changed: true,
             };
         default:
             return state;

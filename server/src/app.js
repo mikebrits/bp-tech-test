@@ -1,45 +1,21 @@
-import { createStore } from 'redux';
-import socket from 'socket.io';
-import rootReducer from '../../src/reducers';
-import { ASSIGN_WORKER, REMOVE_WORKER } from '../../src/constants';
-import { assignWorker, removeWorker } from '../../src/actions/Process.actions';
+import routes from './routes';
+import io from './socket';
+import express from 'express';
+import cors from 'cors';
+import {createServer} from 'http';
+import {tick} from "../controllers/processes.controller";
 
-const app = require('express')();
-const http = require('http').createServer(app);
+const app = express();
+const http = createServer(app);
 
-const io = socket(http);
+app.use(cors());
+app.use('/', routes);
 
-const store = createStore(rootReducer);
-const dispatch = store.dispatch;
-const state = () => store.getState();
+io(http);
 
-const getProcess = id => state().processes.processes.find(item => item.id === id);
-app.get('/', function(req, res) {
-    res.send('<h1>Hello world</h1>');
-});
-
-io.on('connection', function(socket) {
-    console.log('a user connected');
-    socket.on('disconnect', function() {
-        console.log('user disconnected');
-    });
-
-    socket.on('message', message => {
-        io.emit('message', { number: message });
-    });
-
-    socket.on(ASSIGN_WORKER, ({ id }) => {
-        dispatch(assignWorker({ id }));
-        io.emit('refresh', getProcess(id));
-    });
-
-    socket.on(REMOVE_WORKER, ({ id }) => {
-        dispatch(removeWorker({ id }));
-    });
-});
-
+// Ticker
 setInterval(() => {
-    io.emit('tick');
+    tick();
 }, 1000);
 
 http.listen(3003, function() {

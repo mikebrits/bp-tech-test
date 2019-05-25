@@ -1,50 +1,40 @@
 import Process from './Process';
-import React, {useEffect, useState} from 'react';
-import { useDispatch } from 'react-redux';
-import {
-    assignWorker,
-    autoAssign,
-    removeWorker,
-    runProcess,
-    setProcessPriority,
-    suspendProcess,
-} from '../../actions/Process.actions';
-import {socket, emit} from "../../utils/socket";
-import {ASSIGN_WORKER} from "../../constants";
+import React, { useEffect, useState } from 'react';
+import { socket } from '../../utils/socket';
+import {addWorker, autoAssignProcess, removeWorker, runProcess, suspendProcess} from '../../api/processes.api';
 
-export default ({ data }) => {
-    const dispatch = useDispatch();
-    const [process, setProcess] = useState(data);
-    const { id } = process;
-
+const useProcessListener = initialValue => {
+    const [process, setProcess] = useState(initialValue);
     useEffect(() => {
-        socket.on('refresh', (refreshedProcess) => {
-            if(id === refreshedProcess.id){
-                setProcess(refreshedProcess);
-                //dispatch(assignWorker({ id }));
-            }
+        socket.on('refresh-process-' + process.id, refreshedProcess => {
+            setProcess(refreshedProcess);
         });
     }, []);
+
+    return { process };
+};
+
+export default ({ data }) => {
+    const { process } = useProcessListener(data);
+    const { id } = process;
 
     return (
         <Process
             data={process}
             onAssignWorker={() => {
-
-                emit(ASSIGN_WORKER, {id});
+                addWorker(id);
             }}
             onRemoveWorker={() => {
-                dispatch(removeWorker({ id }));
+                removeWorker(id);
             }}
             onRun={() => {
-                dispatch(runProcess({ id }));
+                runProcess(id);
             }}
             onSuspend={() => {
-                dispatch(suspendProcess({ id }));
+                suspendProcess(id);
             }}
-            onSetPriority={priority => {
-                dispatch(setProcessPriority({ id, priority }));
-                dispatch(autoAssign({ id, priority }));
+            onAutoAssign={priority => {
+                autoAssignProcess(id, priority)
             }}
         />
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Process from '../Process';
-import { MAX_PROCESS_WORKERS } from '../../../constants';
+import { MAX_PROCESS_WORKERS } from '../../../../server/constants';
 import Theme from '../../../components/UI/Theme';
 import { ThemeProvider } from 'styled-components';
 import { shallow, mount } from 'enzyme';

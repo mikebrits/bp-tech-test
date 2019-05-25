@@ -1,24 +1,48 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { Container } from './Processes.styled-components';
-import { getFilteredProcesses, getSearchTerm } from '../../selectors';
 import Process from '../Process';
-import Timer from '../UI/Timer';
-import { tick } from '../../actions/Process.actions';
+import { getProcesses } from '../../api/processes.api';
+import {socket} from "../../utils/socket";
 
 const useProcesses = searchTerm => {
-    return useSelector(getFilteredProcesses(searchTerm));
+    const [processes, setProcesses] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    const refresh = () => {
+        getProcesses()
+            .then(procs => {
+                setProcesses(procs);
+                setLoading(false);
+            })
+            .catch(e => {
+                setError(e + '');
+                setLoading(false);
+            });
+    };
+    useEffect(() => {
+        refresh();
+        socket.on('refresh-all', refresh);
+
+    }, []);
+
+    return { loading, error, processes };
 };
 
 const Processes = () => {
-    const searchTerm = useSelector(getSearchTerm);
-    const dispatch = useDispatch();
-    const handleTick = () => dispatch(tick());
 
-    const processes = useProcesses(searchTerm);
+    const { processes, loading, error } = useProcesses('');
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <Container>
-            <Timer onTick={handleTick} />
             {processes.length
                 ? processes.map((process, index) => <Process key={index} data={process} />)
                 : 'No matching processes found'}

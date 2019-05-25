@@ -15,7 +15,7 @@ const initialState = {
     version: 0,
     processes: [
         {
-            id: 1,
+            id: '1',
             maxWorkers: MAX_PROCESS_WORKERS,
             currentWorkers: 0,
             name: 'Order Coffee Beans',
@@ -30,7 +30,7 @@ const initialState = {
             icon: 'coffee',
         },
         {
-            id: 2,
+            id: '2',
             maxWorkers: MAX_PROCESS_WORKERS,
             currentWorkers: 0,
             name: 'Book Movie Tickets',
@@ -45,7 +45,7 @@ const initialState = {
             icon: 'ticket-alt',
         },
         {
-            id: 3,
+            id: '3',
             maxWorkers: MAX_PROCESS_WORKERS,
             currentWorkers: 0,
             name: 'Book Restaurant Table',
@@ -71,7 +71,9 @@ export default (state = initialState, action) => {
         case START_WORKING:
         case PAUSE_WORKING:
         case AUTO_ASSIGN:
+
             const { id } = action.payload;
+            // console.log('pls');
             return {
                 ...state,
                 processes: state.processes.map(
