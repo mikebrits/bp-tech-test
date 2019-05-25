@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container } from './PrioritySetter.styled-components';
 import { Text } from '../UI/Typography';
-import IconButton from '../IconButton';
 import { Row } from '../UI/Pane';
+import Star from '../Star';
 
 const PrioritySetter = ({ onSetPriority }) => {
     const [highestPriority, setHighestPriority] = useState(0);
@@ -12,10 +12,8 @@ const PrioritySetter = ({ onSetPriority }) => {
                 Set Priority
             </Text>
             <Row>
-                <IconButton
-                    name="star"
-                    size={22}
-                    color={highestPriority >= 1 ? '#ffce2b' : '#ddd'}
+                <Star
+                    enabled={highestPriority >= 1}
                     onClick={() => onSetPriority(1)}
                     onMouseEnter={() => {
                         setHighestPriority(1);
@@ -24,10 +22,8 @@ const PrioritySetter = ({ onSetPriority }) => {
                         setHighestPriority(0);
                     }}
                 />
-                <IconButton
-                    name="star"
-                    size={22}
-                    color={highestPriority >= 2 ? '#ffce2b' : '#ddd'}
+                <Star
+                    enabled={highestPriority >= 2}
                     onClick={() => onSetPriority(2)}
                     onMouseEnter={() => {
                         setHighestPriority(2);
@@ -36,10 +32,8 @@ const PrioritySetter = ({ onSetPriority }) => {
                         setHighestPriority(0);
                     }}
                 />
-                <IconButton
-                    name="star"
-                    size={22}
-                    color={highestPriority >= 3 ? '#ffce2b' : '#ddd'}
+                <Star
+                    enabled={highestPriority >= 3}
                     onClick={() => onSetPriority(3)}
                     onMouseEnter={() => {
                         setHighestPriority(3);

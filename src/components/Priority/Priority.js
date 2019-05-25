@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from './Priority.styled-components';
-import Icon from '../Icon';
+import Star from "../Star";
 
 const Priority = ({ rating }) => {
     return (
         <Container>
-            <Icon size={22} name="star" color={rating >= 1 ? '#FFCE2B' : '#ddd'} />
-            <Icon size={22} name="star" color={rating >= 2 ? '#FFCE2B' : '#ddd'} />
-            <Icon size={22} name="star" color={rating === 3 ? '#FFCE2B' : '#ddd'} />
+            <Star enabled={rating >= 1} />
+            <Star enabled={rating >= 2} />
+            <Star enabled={rating >= 3} />
         </Container>
     );
 };

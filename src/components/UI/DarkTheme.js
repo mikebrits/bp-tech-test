@@ -12,6 +12,8 @@ export const colors = {
     paneBG: '#262626',
     paneBGAlt: primary,
     progressBG: '#3c3c3c',
+    star: '#ffce2b',
+    starBG: '#696969',
 };
 
 export const fontSizes = {
