@@ -10,7 +10,7 @@ I decided that having redux on my ui was good and all, but it wasn't necessarily
 #### 🌐 The Server
 It is really just a basic express server, that listens on localhost and responds to a handful of endpoints. That being said, I did stick to MVC principles (or rather MC in this case), and made sure that it would scale up nicely if I wanted to make it smarter in the future. It follows REST principles too. 
 
-I'm also a huge fan of realtime, so I implemented [Socket.io](https://socket.io) on the server too. Now, when the data changes, I will push out a notification to anyone listening. Of course, this is not super smart, so there is no masking on the notifications or anything. But the big plus here is that the server is the new state, and the ultimate source of truth.
+I'm also a huge fan of realtime, so I implemented [Socket.io](https://socket.io) on the server too. Now, when the data changes, I will push out a notification to anyone listening. Of course, this is not super smart, so there is no masking on the notifications or anything. But the big plus here is that the server is the new state, and the ultimate source of truth. Try opening the app in 2 browser windows to see the fun in action. Or, try refreshing the window while a task is in progress. Magic.
 
 #### 🖥  The App
 Because the app had all the redux ripped out of it, it has to ask the server for state. It also needs to listen out for state changes and re-render accordingly. Thankfully, hooks make that super simple, and the fact that they are reusable is just magical with stuff like this. Actions had to be recreated as http requests, but because of how it was set up, this was pretty trivial and the components did not need to change **at all**. 
