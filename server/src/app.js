@@ -9,10 +9,10 @@ const app = express();
 const http = createServer(app);
 
 app.use(cors());
+app.options('*', cors());
 app.use('/', routes);
 
 io(http);
-
 // Ticker
 setInterval(() => {
     tick();

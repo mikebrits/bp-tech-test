@@ -20,26 +20,36 @@ processes.get('/:id', (req, res) => {
 processes.put('/:id/add-worker', (req, res) => {
     addWorker(req.params.id);
     res.status(200);
+    const process = getProcess(req.params.id);
+    res.send(process);
 });
 
 processes.put('/:id/remove-worker', (req, res) => {
     removeWorker(req.params.id);
     res.status(200);
+    const process = getProcess(req.params.id);
+    res.send(process);
 });
 
 processes.put('/:id/run', (req, res) => {
     run(req.params.id);
     res.status(200);
+    const process = getProcess(req.params.id);
+    res.send(process);
 });
 
 processes.put('/:id/suspend', (req, res) => {
     suspend(req.params.id);
     res.status(200);
+    const process = getProcess(req.params.id);
+    res.send(process);
 });
 
 processes.put('/:id/auto-assign', (req, res) => {
     autoAssign(req.params.id, req.query.priority);
     res.status(200);
+    const process = getProcess(req.params.id);
+    res.send(process);
 });
 
 

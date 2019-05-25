@@ -10,6 +10,7 @@ const useProcesses = searchTerm => {
     const [error, setError] = useState('');
 
     const refresh = () => {
+        setLoading(true);
         getProcesses()
             .then(procs => {
                 setProcesses(procs);
