@@ -1,22 +1,20 @@
 import React from 'react';
 import { Container, Input } from './SearchBar.styled-components';
-import { useDispatch, useSelector } from 'react-redux';
 import Icon from '../Icon';
-import { getSearchTerm } from '../../selectors';
-import { updateSearchTerm } from '../../actions/general.actions';
-import IconButton from '../IconButton';
+import { useStateValue } from '../../state/context';
 
 const SearchBar = () => {
-    const searchTerm = useSelector(getSearchTerm);
-    const dispatch = useDispatch();
-    const onChange = value => dispatch(updateSearchTerm(value));
+    const [{ searchTerm }, dispatch] = useStateValue();
 
+    const handleChange = searchTerm => {
+        dispatch({ type: 'SET_SEARCH_TERM', payload: { searchTerm } });
+    };
     return (
         <Container>
             <Icon name="search" highlight />
             <Input
                 value={searchTerm}
-                onChange={e => onChange(e.target.value)}
+                onChange={e => handleChange(e.target.value)}
                 placeholder="Search processes, workers or tags"
             />
         </Container>

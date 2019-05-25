@@ -22,13 +22,6 @@ export const Button = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
     pointer-events: all;
-
-    ${({ disabled }) =>
-        disabled &&
-        `
-        color: #ddd;
-        cursor: default; 
-    `};
 `;

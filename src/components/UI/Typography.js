@@ -10,7 +10,7 @@ export const getColor = ({ theme, primary, secondary, highlight, inverse }) => {
             return theme.colors.inverse;
         case primary:
         default:
-            return 'inherit';
+            return theme.colors.primaryText;
     }
 };
 

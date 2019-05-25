@@ -1,37 +1,46 @@
 import Process from './Process';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { socket } from '../../utils/socket';
 import {
-    assignWorker,
-    autoAssign,
+    addWorker,
+    autoAssignProcess,
     removeWorker,
     runProcess,
-    setProcessPriority,
     suspendProcess,
-} from '../../actions/Process.actions';
+} from '../../api/processes.api';
+
+const useProcessListener = initialValue => {
+    const [process, setProcess] = useState(initialValue);
+    useEffect(() => {
+        socket.on('refresh-process-' + process.id, refreshedProcess => {
+            setProcess(refreshedProcess);
+        });
+    }, []);
+
+    return { process };
+};
 
 export default ({ data }) => {
-    const dispatch = useDispatch();
-    const { id } = data;
+    const { process } = useProcessListener(data);
+    const { id } = process;
 
     return (
         <Process
-            data={data}
+            data={process}
             onAssignWorker={() => {
-                dispatch(assignWorker({ id }));
+                addWorker(id);
             }}
             onRemoveWorker={() => {
-                dispatch(removeWorker({ id }));
+                removeWorker(id);
             }}
             onRun={() => {
-                dispatch(runProcess({ id }));
+                runProcess(id);
             }}
             onSuspend={() => {
-                dispatch(suspendProcess({ id }));
+                suspendProcess(id);
             }}
-            onSetPriority={priority => {
-                dispatch(setProcessPriority({ id, priority }));
-                dispatch(autoAssign({ id, priority }));
+            onAutoAssign={priority => {
+                autoAssignProcess(id, priority);
             }}
         />
     );

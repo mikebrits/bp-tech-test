@@ -13,7 +13,7 @@ module.exports = {
         if (data.constants) {
             actions.push({
                 type: 'add',
-                path: path + '/{{properCase name}}/{{properCase name}}.constants.js',
+                path: path + 'constants.js',
                 templateFile: './templates/constants.hbs',
             });
         }

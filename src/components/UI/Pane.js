@@ -43,6 +43,7 @@ export const MenuItem = styled(View)`
     cursor: pointer;
     padding: 8px 16px;
     text-align: center;
+    color: ${({ theme }) => theme.colors.primaryText};
     &:hover {
         background: ${({ theme }) => theme.colors.primary};
         color: ${({ theme }) => theme.colors.inverse};

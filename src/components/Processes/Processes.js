@@ -1,24 +1,57 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { Container } from './Processes.styled-components';
-import { getFilteredProcesses, getSearchTerm } from '../../selectors';
 import Process from '../Process';
-import Timer from '../UI/Timer';
-import { tick } from '../../actions/Process.actions';
+import { getProcesses } from '../../api/processes.api';
+import { socket } from '../../utils/socket';
+import { useStateValue } from '../../state/context';
 
-const useProcesses = searchTerm => {
-    return useSelector(getFilteredProcesses(searchTerm));
+const useProcesses = () => {
+    const [processes, setProcesses] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [{ searchTerm }] = useStateValue();
+
+    const refresh = () => {
+        setLoading(true);
+        getProcesses()
+            .then(procs => {
+                setProcesses(procs);
+                setLoading(false);
+            })
+            .catch(e => {
+                setError(e + '');
+                setLoading(false);
+            });
+    };
+
+    useEffect(() => {
+        refresh();
+        socket.on('refresh-all', refresh);
+    }, []);
+
+    return { loading, error, processes: processes && filterProcesses(searchTerm, processes) };
 };
 
-const Processes = () => {
-    const searchTerm = useSelector(getSearchTerm);
-    const dispatch = useDispatch();
-    const handleTick = () => dispatch(tick());
+const filterProcesses = (searchTerm, processes) =>
+    processes.filter(
+        process =>
+            process.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            process.description.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
 
-    const processes = useProcesses(searchTerm);
+const Processes = () => {
+    const { processes, loading, error } = useProcesses();
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <Container>
-            <Timer onTick={handleTick} />
             {processes.length
                 ? processes.map((process, index) => <Process key={index} data={process} />)
                 : 'No matching processes found'}
