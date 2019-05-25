@@ -3,7 +3,7 @@ import { Container, Input } from './SearchBar.styled-components';
 import Icon from '../Icon';
 
 const SearchBar = () => {
-    
+
     return (
         <Container>
             <Icon name="search" highlight />
