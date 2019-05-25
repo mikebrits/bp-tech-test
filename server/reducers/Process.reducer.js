@@ -104,7 +104,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 computationRemaining,
-                percentageComplete: 100 - (computationRemaining / state.totalTime) * 100,
+                percentageComplete: done ? 100 : 100 - (computationRemaining / state.totalTime) * 100,
                 status: done ? 'Completed' : state.status,
                 running: !done,
                 currentWorkers: done ? 0 : state.currentWorkers,

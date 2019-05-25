@@ -63,6 +63,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onAut
                                     }}
                                 />
                                 <ProgressBar
+                                    key={status}
                                     percentageComplete={percentageComplete}
                                     timeRemaining={timeRemaining}
                                     showStats={statsVisible}

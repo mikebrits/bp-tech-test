@@ -23,6 +23,8 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
+    "start": "node dist/server.js",
+    "start-dev": "nodemon dist/server.js",
     "build": "npx webpack --config webpack.config.js --watch"
   }
 }

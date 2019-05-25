@@ -15,8 +15,9 @@ export const Bar = styled(Container)`
     margin: 0;
     overflow: hidden;
     white-space: nowrap;
+    transition: width ${({ percentageComplete }) => (percentageComplete === 100 ? 0 : 2)}s linear;
     ${({ percentageComplete, theme }) => `
-    width: ${percentageComplete}%;
+    width: ${percentageComplete === 100 ? 0 : percentageComplete}%;
     background: ${theme.colors.primary}
   `};
 `;
