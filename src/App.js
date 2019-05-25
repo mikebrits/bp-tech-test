@@ -1,27 +1,17 @@
 import React from 'react';
-import Processes from './components/Processes';
-import { ThemeProvider } from 'styled-components';
-import Theme from './components/UI/Theme';
-import Header from './components/Header';
-import styled from 'styled-components/macro';
+
+import { StateProvider } from './utils/context';
+import ProcessApp from "./components/ProcessApp";
+
 
 
 function App() {
     return (
-
-            <ThemeProvider theme={Theme}>
-                <Body>
-                    <Header />
-                    <Processes />
-                </Body>
-            </ThemeProvider>
+        <StateProvider>
+            <ProcessApp/>
+        </StateProvider>
     );
 }
 
-const Body = styled.div`
-    height: 100vh;
-    overflow: scroll;
-    background: ${({ theme }) => theme.colors.pageBG};
-`;
 
 export default App;

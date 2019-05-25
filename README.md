@@ -50,7 +50,7 @@ I wanted this to be a living, breathing system. I did this using a `Tick` action
 This should hopefully make sense when looking at the designs. 
 
 ### Theming
-I like to make sure that css variables are maintained throughout the application. The upside of doing that with CSS in JS is that theming becomes quite easy. While I haven't included a theme switcher on this, by going into `src/components/UI/Theme.js` you can tinker with these values to get an idea of how they might affect the document. My personal favourite is setting `colors.primary` to something like `#8E60B7` and seeing how it all cascades nicely, on the popover menus and icons. 
+I like to make sure that css variables are maintained throughout the application. The upside of doing that with CSS in JS is that theming becomes quite easy. While I haven't included a lightTheme switcher on this, by going into `src/components/UI/LightTheme.js` you can tinker with these values to get an idea of how they might affect the document. My personal favourite is setting `colors.primary` to something like `#8E60B7` and seeing how it all cascades nicely, on the popover menus and icons. 
 
 ## 💅 UI / UX
 Again, apologies in advance. 
@@ -65,7 +65,7 @@ Again, apologies in advance.
  - Text is difficult to read on the progress bar, it is small and does not have sufficient contrast
  - Inconsistent icon colors
 
-Working with a theme makes these kinds of things easier to remedy in code, so I made some decisions here that would hopefully make these a bit more consistent.
+Working with a lightTheme makes these kinds of things easier to remedy in code, so I made some decisions here that would hopefully make these a bit more consistent.
 
 #### **UX Observations:**
 

@@ -1,7 +1,13 @@
 import Process from './Process';
 import React, { useEffect, useState } from 'react';
 import { socket } from '../../utils/socket';
-import {addWorker, autoAssignProcess, removeWorker, runProcess, suspendProcess} from '../../api/processes.api';
+import {
+    addWorker,
+    autoAssignProcess,
+    removeWorker,
+    runProcess,
+    suspendProcess,
+} from '../../api/processes.api';
 
 const useProcessListener = initialValue => {
     const [process, setProcess] = useState(initialValue);
@@ -34,7 +40,7 @@ export default ({ data }) => {
                 suspendProcess(id);
             }}
             onAutoAssign={priority => {
-                autoAssignProcess(id, priority)
+                autoAssignProcess(id, priority);
             }}
         />
     );

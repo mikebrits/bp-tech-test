@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from './Processes.styled-components';
 import Process from '../Process';
 import { getProcesses } from '../../api/processes.api';
-import {socket} from "../../utils/socket";
+import { socket } from '../../utils/socket';
 
 const useProcesses = searchTerm => {
     const [processes, setProcesses] = useState(null);
@@ -24,14 +24,12 @@ const useProcesses = searchTerm => {
     useEffect(() => {
         refresh();
         socket.on('refresh-all', refresh);
-
     }, []);
 
     return { loading, error, processes };
 };
 
 const Processes = () => {
-
     const { processes, loading, error } = useProcesses('');
 
     if (loading) {

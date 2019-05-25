@@ -22,7 +22,7 @@ const StatusBar = ({ status }) => {
     return (
         <Container color={colors[status]}>
             <Row align="center">
-                <Icon size={12} name={icons[status]} style={{ marginRight: 4, marginTop: 2 }} />
+                <Icon size={12} name={icons[status]} style={{ marginRight: 4, marginTop: 2 }} inverse />
                 {status}
             </Row>
         </Container>

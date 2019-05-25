@@ -11,6 +11,7 @@ export const colors = {
     pageBG: '#FAFAFA',
     paneBG: '#FFFFFF',
     paneBGAlt: primary,
+    progressBG: '#d0edff',
 };
 
 export const fontSizes = {

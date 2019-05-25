@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Process from '../Process';
 import { MAX_PROCESS_WORKERS } from '../../../../server/constants';
-import Theme from '../../../components/UI/Theme';
+import Theme from '../../UI/LightTheme';
 import { ThemeProvider } from 'styled-components';
 import { shallow, mount } from 'enzyme';
 import { ActiveWorkers } from '../../WorkerSetter/WorkerSetter.styled-components';

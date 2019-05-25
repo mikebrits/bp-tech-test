@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: 30px;
     position: relative;
     border-radius: ${({ theme }) => theme.borderRadius};
-    background: #d0edff;
+    background: ${({ theme }) => theme.colors.progressBG};
 `;
 
 export const Bar = styled(Container)`
