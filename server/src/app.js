@@ -13,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.options('*', cors());
 app.use('/', routes);
+app.use('/', routes);
 
 io(http);
 // Ticker
