@@ -1,22 +1,14 @@
 import React from 'react';
-import LightTheme from '../UI/LightTheme';
-import DarkTheme from '../UI/DarkTheme';
 import Header from '../Header';
 import Processes from '../Processes';
 import { ThemeProvider } from 'styled-components';
-import { useStateValue } from '../../utils/context';
+import { useStateValue } from '../../state/context';
 import styled from 'styled-components/macro';
-
-const themes = {
-    light: LightTheme,
-    dark: DarkTheme,
-};
 
 const ProcessApp = () => {
     const [{ theme }, dispatch] = useStateValue();
-    console.log(theme);
     return (
-        <ThemeProvider theme={themes[theme]}>
+        <ThemeProvider theme={theme}>
             <Body>
                 <Header
                     setTheme={theme => {

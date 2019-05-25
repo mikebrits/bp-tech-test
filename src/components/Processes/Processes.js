@@ -3,7 +3,7 @@ import { Container } from './Processes.styled-components';
 import Process from '../Process';
 import { getProcesses } from '../../api/processes.api';
 import { socket } from '../../utils/socket';
-import { useStateValue } from '../../utils/context';
+import { useStateValue } from '../../state/context';
 
 const useProcesses = () => {
     const [processes, setProcesses] = useState(null);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Input } from './SearchBar.styled-components';
 import Icon from '../Icon';
-import { useStateValue } from '../../utils/context';
+import { useStateValue } from '../../state/context';
 
 const SearchBar = () => {
     const [{ searchTerm }, dispatch] = useStateValue();

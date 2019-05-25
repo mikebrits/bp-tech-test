@@ -16,18 +16,18 @@ const ProgressBar = ({
             <Row>
                 <Col padding={'0 16px 0 8'}>
                     <div>
-                        <Text bold>Tasks in Queue:</Text> {tasksInQueue}
+                        <b>Tasks in Queue:</b> {tasksInQueue}
                     </div>
                     <div>
-                        <Text bold>Tasks Completed:</Text> {tasksCompleted}
+                        <b>Tasks Completed:</b> {tasksCompleted}
                     </div>
                 </Col>
                 <Col>
                     <div>
-                        <Text bold>Average Task Time:</Text> {averageTaskTime}s
+                        <b>Average Task Time:</b> {averageTaskTime}s
                     </div>
                     <div>
-                        <Text bold>Time Remaining:</Text> {timeRemaining}s
+                        <b>Time Remaining:</b> {timeRemaining}s
                     </div>
                 </Col>
             </Row>
