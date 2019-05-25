@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useContext } from 'react';
 
 const initialState = {
-    theme: 'dark',
+    theme: 'light',
     searchTerm: ''
 };
 

@@ -46,7 +46,7 @@ processes.put('/:id/suspend', (req, res) => {
 });
 
 processes.put('/:id/auto-assign', (req, res) => {
-    autoAssign(req.params.id, req.query.priority);
+    autoAssign(req.params.id, req.body.priority);
     res.status(200);
     const process = getProcess(req.params.id);
     res.send(process);

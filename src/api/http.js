@@ -1,12 +1,5 @@
 import { API_URL } from './constants.api';
 
-const defaultRequest = {
-    mode: 'cors',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-};
-
 export const get = (route = '') => {
     return fetch(API_URL + route).then(res => res.json());
 };
@@ -14,15 +7,23 @@ export const get = (route = '') => {
 export const post = (route = '', data) => {
     return fetch(API_URL + route, {
         method: 'POST',
-        body: data,
-        ...defaultRequest,
+        body: JSON.stringify(data),
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
     }).then(res => res.json());
 };
 
 export const put = (route = '', data) => {
     return fetch(API_URL + route, {
         method: 'PUT',
-        body: data,
-        ...defaultRequest,
-    }).then(res => res.json());
+        body: JSON.stringify(data),
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => res.json())
+        .catch(e => console.error(e));
 };

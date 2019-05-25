@@ -22,5 +22,5 @@ export const suspendProcess = async id => {
 };
 
 export const autoAssignProcess = async (id, priority) => {
-    return await put(`${route}/${id}/auto-assign?priority=${priority}`);
+    return await put(`${route}/${id}/auto-assign`, {priority});
 };
