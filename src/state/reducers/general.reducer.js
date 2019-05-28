@@ -1,5 +1,6 @@
 import themeSelector from '../../components/UI/Theme';
 import localSelector from '../../i18n';
+
 export const initialState = {
     theme: themeSelector(),
     locale: localSelector(),

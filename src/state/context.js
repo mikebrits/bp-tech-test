@@ -7,8 +7,8 @@ const initialState = {
     searchTerm: searchInit,
 };
 
-const mainReducer = ({ theme, searchTerm }, action) => ({
-    general: generalReducer(theme, action),
+const mainReducer = ({ general, searchTerm }, action) => ({
+    general: generalReducer(general, action),
     searchTerm: searchReducer(searchTerm, action),
 });
 
