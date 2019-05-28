@@ -13,10 +13,10 @@ const Header = ({ setTheme }) => {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <Divider />
             <Container>
-                <IconButton name="bars" highlight />
+                <IconButton name="bars" highlight size="1.4em"/>
                 <SearchBar />
                 <div ref={anchorRef} onClick={() => setPopoverOpen(true)}>
-                    <IconButton name="ellipsis-h" highlight />
+                    <IconButton name="ellipsis-h" size="1.4em" highlight />
                 </div>
                 <Popover
                     position="bottom"

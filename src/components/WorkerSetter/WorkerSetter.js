@@ -12,7 +12,7 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                 <IconButton
                     highlight
                     onClick={onRemove}
-                    size={12}
+
                     name="minus-circle"
                     style={{ margin: '-5px 12px 0 0' }}
                 />
@@ -22,7 +22,6 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                 <IconButton
                     highlight
                     onClick={onAssign}
-                    size={12}
                     name="plus-circle"
                     style={{ margin: '-5px 0 0 12px' }}
                 />

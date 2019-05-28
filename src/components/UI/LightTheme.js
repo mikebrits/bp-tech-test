@@ -17,10 +17,10 @@ export const colors = {
 };
 
 export const fontSizes = {
-    h1: '24px',
-    h2: '20px',
-    body: '15px',
-    small: '12px',
+    h1: '2.4em',
+    h2: '2em',
+    body: '1.5em',
+    small: '1.2em',
 };
 
 export const fontWeights = {

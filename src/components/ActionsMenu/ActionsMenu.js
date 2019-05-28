@@ -12,7 +12,7 @@ const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) 
     return (
         <Container>
             <div style={{ marginRight: 8 }} ref={anchorRef} onClick={() => setPopoverOpen(true)}>
-                <IconButton name="ellipsis-h" highlight />
+                <IconButton name="ellipsis-h" highlight size="1.2em" />
             </div>
             <Popover
                 position="bottom"

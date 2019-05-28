@@ -12,7 +12,7 @@ const SearchBar = () => {
     return (
         <Container>
             <label htmlFor="search">
-                <Icon name="search" highlight id="search-label" />
+                <Icon name="search" highlight id="search-label" size="1.4em" />
 
                 <Input
                     aria-labelledby="search-label"

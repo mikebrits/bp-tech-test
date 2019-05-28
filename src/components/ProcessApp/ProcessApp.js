@@ -21,6 +21,7 @@ const Body = styled.div`
     height: 100vh;
     overflow: scroll;
     background: ${({ theme }) => theme.colors.pageBG};
+    font-size: 62.5%;
 `;
 
 export default ProcessApp;

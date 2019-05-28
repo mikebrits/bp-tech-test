@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './StatusBar.styled-components';
 import Icon from '../Icon';
 import { Row } from '../UI/Pane';
+import {Text} from "../UI/Typography";
 
 const StatusBar = ({ status }) => {
     const colors = {
@@ -28,7 +29,9 @@ const StatusBar = ({ status }) => {
                     style={{ marginRight: 4, marginTop: 2 }}
                     inverse
                 />
-                {status}
+                <Text inverse>
+                    {status}
+                </Text>
             </Row>
         </Container>
     );

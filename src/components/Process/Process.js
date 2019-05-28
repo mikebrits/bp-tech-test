@@ -56,7 +56,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onAut
                                 <IconButton
                                     name="eye"
                                     color={statsVisible ? '#0C75B7' : '#b1b1b1'}
-                                    size={22}
+                                    size="2em"
                                     style={{ marginRight: 8 }}
                                     onClick={() => {
                                         setStatsVisible(!statsVisible);
