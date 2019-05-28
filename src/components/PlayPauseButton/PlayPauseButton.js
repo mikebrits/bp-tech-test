@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Container } from './PlayPauseButton.styled-components';
 import Icon from '../Icon';
-import { useStateValue } from '../../state/context';
+import {useTheme} from "../UI/ThemeHooks";
 
 const PlayPauseButton = ({ playing, onClick = () => {}, disabled }) => {
-    const [{ theme }] = useStateValue();
+    const [ theme ] = useTheme();
     const handlePlay = () => {
         if (!disabled) onClick();
     };

@@ -3,11 +3,15 @@ import { ActiveWorkers, Container } from './WorkerSetter.styled-components';
 import { Text } from '../UI/Typography';
 import { Row } from '../UI/Pane';
 import IconButton from '../IconButton';
+import {useLocale} from "../../i18n/LocaleHooks";
+import {Divider} from "../UI/Divider";
 
 const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
+    const [{process}] = useLocale();
     return (
         <Container>
-            <Text>Workers Assigned</Text> <br />
+            <Text>{process.workers.label}</Text>
+            <Divider margin='4'/>
             <Row justify="center" align="center">
                 <IconButton
                     highlight

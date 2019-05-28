@@ -1,9 +1,9 @@
 import React from 'react';
 import Icon from "../Icon";
-import {useStateValue} from "../../state/context";
+import {useTheme} from "../UI/ThemeHooks";
 
 const Star = ({ enabled, size = 22, ...rest }) => {
-    const [{ theme }] = useStateValue();
+    const [theme] = useTheme();
     return<Icon
         size={size}
         name="star"

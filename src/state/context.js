@@ -1,14 +1,14 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import themeReducer, { initialState as themeInit } from './reducers/theme.reducer';
+import generalReducer, { initialState as generalInit } from './reducers/general.reducer';
 import searchReducer, { initialState as searchInit } from './reducers/searchTerm.reducer';
 
 const initialState = {
-    theme: themeInit,
+    general: generalInit,
     searchTerm: searchInit,
 };
 
 const mainReducer = ({ theme, searchTerm }, action) => ({
-    theme: themeReducer(theme, action),
+    general: generalReducer(theme, action),
     searchTerm: searchReducer(searchTerm, action),
 });
 

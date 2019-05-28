@@ -8,6 +8,6 @@ const themes = {
     dark: DarkTheme,
 };
 
-const defaultTheme = LightTheme;
+const defaultTheme = 'light';
 
-export default themeIndex => themes[themeIndex] || defaultTheme;
+export default (themeIndex = defaultTheme) => themes[themeIndex];

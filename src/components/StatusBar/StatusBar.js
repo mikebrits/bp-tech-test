@@ -3,6 +3,7 @@ import { Container } from './StatusBar.styled-components';
 import Icon from '../Icon';
 import { Row } from '../UI/Pane';
 import {Text} from "../UI/Typography";
+import {useLocale} from "../../i18n/LocaleHooks";
 
 const StatusBar = ({ status }) => {
     const colors = {
@@ -20,6 +21,9 @@ const StatusBar = ({ status }) => {
         Paused: 'pause-circle',
         Assigned: 'user-circle',
     };
+
+    const [{process}] = useLocale();
+
     return (
         <Container color={colors[status]}>
             <Row align="center">
@@ -30,7 +34,7 @@ const StatusBar = ({ status }) => {
                     inverse
                 />
                 <Text inverse>
-                    {status}
+                    {process.status[status]}
                 </Text>
             </Row>
         </Container>
