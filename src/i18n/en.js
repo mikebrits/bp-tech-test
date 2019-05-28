@@ -1,5 +1,9 @@
 export default {
     key: 'en',
+    themes: {
+        light: 'Light Theme',
+        dark: 'Dark Theme'
+    },
     header: {
         search : {
             placeholder : "Search processes, workers or tags"

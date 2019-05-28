@@ -33,8 +33,12 @@ const Header = ({ setTheme }) => {
                         open={popoverOpen}
                     >
                         <Menu>
-                            <MenuItem onClick={() => setTheme('light')}>Light Theme</MenuItem>
-                            <MenuItem onClick={() => setTheme('dark')}>Dark Theme</MenuItem>
+                            <MenuItem onClick={() => setTheme('light')}>
+                                {locale.themes.light}
+                            </MenuItem>
+                            <MenuItem onClick={() => setTheme('dark')}>
+                                {locale.themes.dark}
+                            </MenuItem>
                         </Menu>
                     </Popover>
                 </span>

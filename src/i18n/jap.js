@@ -1,5 +1,9 @@
 export default {
     key: 'jap',
+    themes: {
+        light: '軽いテーマ',
+        dark: '暗いテーマ',
+    },
     header: {
         search : {
             placeholder : "検索プロセス、ワーカー、またはタグ"
