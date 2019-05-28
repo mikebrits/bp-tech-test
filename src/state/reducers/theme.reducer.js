@@ -1,17 +1,11 @@
-import LightTheme from '../../components/UI/LightTheme';
-import DarkTheme from '../../components/UI/DarkTheme';
+import themeSelector from '../../components/UI/Theme';
 
-export const initialState = LightTheme;
-
-const themes = {
-    light: LightTheme,
-    dark: DarkTheme,
-};
+export const initialState = themeSelector();
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'SET_THEME':
-            return themes[action.payload.theme];
+            return themeSelector(action.payload.theme);
 
         default:
             return state;
