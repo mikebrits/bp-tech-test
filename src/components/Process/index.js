@@ -1,6 +1,6 @@
 import Process from './Process';
 import React, { useEffect, useState } from 'react';
-import { socket } from '../../utils/socket';
+import {listen} from '../../utils/socket';
 import {
     addWorker,
     autoAssignProcess,
@@ -12,7 +12,7 @@ import {
 const useProcessListener = initialValue => {
     const [process, setProcess] = useState(initialValue);
     useEffect(() => {
-        socket.on('refresh-process-' + process.id, refreshedProcess => {
+        listen('refresh-process-' + process.id, refreshedProcess => {
             setProcess(refreshedProcess);
         });
     }, []);

@@ -16,6 +16,7 @@ const SearchBar = () => {
                 value={searchTerm}
                 onChange={e => handleChange(e.target.value)}
                 placeholder="Search processes, workers or tags"
+                label="Search Processes"
             />
         </Container>
     );

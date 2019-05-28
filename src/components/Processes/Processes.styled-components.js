@@ -7,3 +7,9 @@ export const Container = styled.div`
     flex-flow: column;
     align-items: center;
 `;
+
+export const Error = styled.div`
+  margin-top: 24px;
+  color: #b40000;
+  text-align: center;
+`;

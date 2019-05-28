@@ -10,7 +10,6 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
             <Text>Workers Assigned</Text> <br />
             <Row justify="center" align="center">
                 <IconButton
-                    id="minus-worker-button"
                     highlight
                     onClick={onRemove}
                     size={12}
@@ -21,7 +20,6 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                     {activeWorkers}/{maxWorkers}
                 </ActiveWorkers>
                 <IconButton
-                    id="plus-worker-button"
                     highlight
                     onClick={onAssign}
                     size={12}
