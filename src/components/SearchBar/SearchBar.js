@@ -11,13 +11,19 @@ const SearchBar = () => {
     };
     return (
         <Container>
-            <Icon name="search" highlight />
-            <Input
-                value={searchTerm}
-                onChange={e => handleChange(e.target.value)}
-                placeholder="Search processes, workers or tags"
-                label="Search Processes"
-            />
+            <label htmlFor="search">
+                <Icon name="search" highlight id="search-label" />
+
+                <Input
+                    aria-labelledby="search-label"
+                    value={searchTerm}
+                    onChange={e => handleChange(e.target.value)}
+                    placeholder="Search processes, workers or tags"
+                    label="Search"
+                    name="search"
+                    id="search"
+                />
+            </label>
         </Container>
     );
 };
