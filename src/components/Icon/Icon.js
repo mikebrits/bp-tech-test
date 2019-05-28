@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { getColor } from '../UI/Typography';
+import PropTypes from 'prop-types';
 
 const Icon = ({ name, type = 'solid', size = 'inherit', color, pulse, spin, style, ...rest }) => {
     const types = {
@@ -27,5 +28,14 @@ const Icon = ({ name, type = 'solid', size = 'inherit', color, pulse, spin, styl
 const Container = styled.i`
     color: ${({ color, ...props }) => color || getColor(props)};
 `;
+
+Icon.propTypes = {
+    name: PropTypes.string.isRequired,
+    size: PropTypes.string,
+    type: PropTypes.oneOf(['solid', 'regular', 'light', 'far', 'fas', 'fal']),
+    color: PropTypes.string,
+    pulse: PropTypes.bool,
+    spin: PropTypes.bool
+};
 
 export default Icon;

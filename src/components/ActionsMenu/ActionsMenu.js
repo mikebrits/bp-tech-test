@@ -3,6 +3,7 @@ import { Container } from './ActionsMenu.styled-components';
 import IconButton from '../IconButton';
 import { Popover } from '../UI/Popover';
 import { Menu, MenuItem } from '../UI/Pane';
+import PropTypes from 'prop-types';
 
 const PrioritySetter = lazy(() => import('../PrioritySetter'));
 
@@ -41,6 +42,10 @@ const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) 
             </Popover>
         </Container>
     );
+};
+
+ActionsMenu.propTypes = {
+    onSetPriority: PropTypes.func.isRequired
 };
 
 export default ActionsMenu;

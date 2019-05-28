@@ -5,6 +5,7 @@ import { Row } from '../UI/Pane';
 import IconButton from '../IconButton';
 import {useLocale} from "../../i18n/LocaleHooks";
 import {Divider} from "../UI/Divider";
+import PropTypes from 'prop-types';
 
 const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
     const [{process}] = useLocale();
@@ -32,6 +33,13 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
             </Row>
         </Container>
     );
+};
+
+WorkerSetter.propTypes = {
+    activeWorkers: PropTypes.number.isRequired,
+    maxWorkers: PropTypes.number.isRequired,
+    onAssign: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired
 };
 
 export default WorkerSetter;

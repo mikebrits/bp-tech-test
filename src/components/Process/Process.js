@@ -17,6 +17,7 @@ import { Divider } from '../UI/Divider';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import ActionsMenu from '../ActionsMenu';
+import PropTypes from 'prop-types';
 
 const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onAutoAssign }) => {
     const {
@@ -97,6 +98,27 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onAut
             </Row>
         </Container>
     );
+};
+
+Process.propTypes ={
+    data: PropTypes.shape({
+        name : PropTypes.string.isRequired,
+        description: PropTypes.string,
+        currentWorkers: PropTypes.number,
+        maxWorkers: PropTypes.number.isRequired,
+        priority: PropTypes.number,
+        status: PropTypes.oneOf(['Assigned', 'Unassigned', 'Running', 'Paused', 'Completed']),
+        assigned: PropTypes.bool.isRequired,
+        running: PropTypes.bool.isRequired,
+        percentageComplete: PropTypes.number,
+        timeRemaining: PropTypes.number,
+        icon: PropTypes.string,
+    }),
+    onAssignWorker: PropTypes.func.isRequired,
+    onRemoveWorker: PropTypes.func.isRequired,
+    onRun: PropTypes.func.isRequired,
+    onSuspend: PropTypes.func.isRequired,
+    onAutoAssign: PropTypes.func.isRequired
 };
 
 export default Process;

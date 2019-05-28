@@ -17,7 +17,8 @@ export default {
             Assigned: '割り当て済み',
             Completed: '完成した',
             Paused: '一時停止',
-            Unassigned: '未割り当て\n'
+            Unassigned: '未割り当て',
+            Running: 'ランニング'
         },
         progressBar : {
             tasksInQueue: 'キュー内のタスク',

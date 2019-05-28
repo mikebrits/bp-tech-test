@@ -17,7 +17,8 @@ export default {
             Assigned: 'Assigned',
             Completed: 'Completed',
             Paused: 'Paused',
-            Unassigned: 'Unassigned'
+            Unassigned: 'Unassigned',
+            Running: 'Running'
         },
         progressBar : {
             tasksInQueue: 'Tasks in Queue',

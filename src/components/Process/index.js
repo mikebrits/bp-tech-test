@@ -9,18 +9,19 @@ import {
     suspendProcess,
 } from '../../api/processes.api';
 
+
 const useProcessListener = initialValue => {
     const [process, setProcess] = useState(initialValue);
     useEffect(() => {
         listen('refresh-process-' + process.id, refreshedProcess => {
             setProcess(refreshedProcess);
         });
-    }, []);
+    }, [process.id]);
 
     return { process };
 };
 
-export default ({ data }) => {
+const _Process =  ({ data }) => {
     const { process } = useProcessListener(data);
     const { id } = process;
 
@@ -45,3 +46,5 @@ export default ({ data }) => {
         />
     );
 };
+
+export default _Process;

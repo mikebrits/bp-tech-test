@@ -6,6 +6,7 @@ import { Divider } from '../UI/Divider';
 import { Popover } from '../UI/Popover';
 import { Menu, MenuItem } from '../UI/Pane';
 import { useLocale } from '../../i18n/LocaleHooks';
+import PropTypes from 'prop-types';
 
 const Header = ({ setTheme }) => {
     const anchorRef = useRef(null);
@@ -19,8 +20,8 @@ const Header = ({ setTheme }) => {
                 <SearchBar />
                 <span>
                     <select onChange={e => setLocale(e.target.value)} value={locale.key}>
-                        <option value="en">🇬🇧 </option>
-                        <option value="jap">🇯🇵 </option>
+                        <option value="en">English</option>
+                        <option value="jap">Japanese</option>
                     </select>
                     <div ref={anchorRef} onClick={() => setPopoverOpen(true)}>
                         <IconButton name="ellipsis-h" size="1.4em" highlight />
@@ -46,6 +47,10 @@ const Header = ({ setTheme }) => {
             <Divider border />
         </div>
     );
+};
+
+Header.propTypes = {
+    setTheme: PropTypes.func.isRequired,
 };
 
 export default Header;

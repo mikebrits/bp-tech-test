@@ -1,8 +1,8 @@
 import React from 'react';
 import { Bar, Container, ProgressText } from './ProgressBar.styled-components';
 import { Col, Row } from '../UI/Pane';
-import { Text } from '../UI/Typography';
-import {useLocale} from "../../i18n/LocaleHooks";
+import { useLocale } from '../../i18n/LocaleHooks';
+import PropTypes from 'prop-types';
 
 const ProgressBar = ({
     percentageComplete = 0,
@@ -12,7 +12,7 @@ const ProgressBar = ({
     timeRemaining = 0,
     showStats = false,
 }) => {
-    const [{process}] = useLocale();
+    const [{ process }] = useLocale();
     const stats = process.progressBar;
     const _ProgressText = ({ color = 'black', index = 5 }) => (
         <ProgressText index={index} color={color}>
@@ -27,10 +27,12 @@ const ProgressBar = ({
                 </Col>
                 <Col>
                     <div>
-                        <b>{stats.averageTaskTime}:</b> {averageTaskTime}{stats.seconds}
+                        <b>{stats.averageTaskTime}:</b> {averageTaskTime}
+                        {stats.seconds}
                     </div>
                     <div>
-                        <b>{stats.timeRemaining}:</b> {timeRemaining}{stats.seconds}
+                        <b>{stats.timeRemaining}:</b> {timeRemaining}
+                        {stats.seconds}
                     </div>
                 </Col>
             </Row>
@@ -45,6 +47,15 @@ const ProgressBar = ({
             {showStats && _ProgressText({ color: 'black' })}
         </Container>
     );
+};
+
+ProgressBar.propTypes = {
+    percentageComplete: PropTypes.number,
+    tasksInQueue: PropTypes.number,
+    tasksCompleted: PropTypes.number,
+    averageTaskTime: PropTypes.number,
+    timeRemaining: PropTypes.number,
+    showStats: PropTypes.bool,
 };
 
 export default ProgressBar;
