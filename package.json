@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "gen": "plop --plopfile generators/index.js && prettier --loglevel error --write \"./src/**/*.js\""
+    "gen": "plop --plopfile generators/index.js && prettier --loglevel error --write \"./src/**/*.js\"",
+    "e2e": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +35,8 @@
     ]
   },
   "devDependencies": {
+    "chance": "^1.0.18",
+    "cypress": "^3.3.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
     "inquirer-directory": "^2.1.0",

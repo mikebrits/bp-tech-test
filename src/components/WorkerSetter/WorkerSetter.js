@@ -10,6 +10,7 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
             <Text>Workers Assigned</Text> <br />
             <Row justify="center" align="center">
                 <IconButton
+                    data-cy="minus-worker-button"
                     id="minus-worker-button"
                     highlight
                     onClick={onRemove}
@@ -17,11 +18,12 @@ const WorkerSetter = ({ activeWorkers, maxWorkers, onAssign, onRemove }) => {
                     name="minus-circle"
                     style={{ margin: '-5px 12px 0 0' }}
                 />
-                <ActiveWorkers>
+                <ActiveWorkers data-cy="active-workers">
                     {activeWorkers}/{maxWorkers}
                 </ActiveWorkers>
                 <IconButton
                     id="plus-worker-button"
+                    data-cy="plus-worker-button"
                     highlight
                     onClick={onAssign}
                     size={12}

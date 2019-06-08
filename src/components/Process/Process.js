@@ -34,7 +34,7 @@ const Process = ({ data, onAssignWorker, onRemoveWorker, onRun, onSuspend, onAut
     } = data;
     const [statsVisible, setStatsVisible] = useState(false);
     return (
-        <Container>
+        <Container data-cy="process">
             <Row>
                 <Details>
                     <Row justify="space-between">

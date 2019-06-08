@@ -20,7 +20,7 @@ const StatusBar = ({ status }) => {
         Assigned: 'user-circle',
     };
     return (
-        <Container color={colors[status]}>
+        <Container color={colors[status]} data-cy="status-bar">
             <Row align="center">
                 <Icon
                     size={12}

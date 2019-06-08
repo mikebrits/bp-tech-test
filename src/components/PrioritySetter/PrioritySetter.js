@@ -13,6 +13,7 @@ const PrioritySetter = ({ onSetPriority }) => {
             </Text>
             <Row>
                 <Star
+                    data-cy="star-1"
                     enabled={highestPriority >= 1}
                     onClick={() => onSetPriority(1)}
                     onMouseEnter={() => {
@@ -23,6 +24,7 @@ const PrioritySetter = ({ onSetPriority }) => {
                     }}
                 />
                 <Star
+                    data-cy="star-2"
                     enabled={highestPriority >= 2}
                     onClick={() => onSetPriority(2)}
                     onMouseEnter={() => {
@@ -33,6 +35,7 @@ const PrioritySetter = ({ onSetPriority }) => {
                     }}
                 />
                 <Star
+                    data-cy="star-3"
                     enabled={highestPriority >= 3}
                     onClick={() => onSetPriority(3)}
                     onMouseEnter={() => {

@@ -11,7 +11,7 @@ const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) 
     const [settingPriority, setSettingPriority] = useState(false);
     return (
         <Container>
-            <div style={{ marginRight: 8 }} ref={anchorRef} onClick={() => setPopoverOpen(true)}>
+            <div style={{ marginRight: 8 }} ref={anchorRef} onClick={() => setPopoverOpen(true)} data-cy="actions-menu-button">
                 <IconButton name="ellipsis-h" highlight />
             </div>
             <Popover
@@ -21,7 +21,7 @@ const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) 
                 onClose={() => setPopoverOpen(false)}
                 open={popoverOpen}
             >
-                <Menu>
+                <Menu data-cy="actions-menu">
                     {settingPriority ? (
                         <PrioritySetter onSetPriority={onSetPriority} />
                     ) : (
