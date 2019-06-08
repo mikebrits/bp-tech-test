@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, lazy, Suspense } from 'react';
 import { Container } from './ActionsMenu.styled-components';
 import IconButton from '../IconButton';
 import { Popover } from '../UI/Popover';
 import { Menu, MenuItem } from '../UI/Pane';
-import PrioritySetter from '../PrioritySetter';
+import PropTypes from 'prop-types';
+
+const PrioritySetter = lazy(() => import('../PrioritySetter'));
 
 const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) => {
     const anchorRef = useRef(null);
@@ -23,7 +25,9 @@ const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) 
             >
                 <Menu data-cy="actions-menu">
                     {settingPriority ? (
-                        <PrioritySetter onSetPriority={onSetPriority} />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <PrioritySetter onSetPriority={onSetPriority} />
+                        </Suspense>
                     ) : (
                         <>
                             <MenuItem onClick={() => setSettingPriority(true)}>
@@ -38,6 +42,10 @@ const ActionsMenu = ({ onArchive, onSchedule, onSelectWorkers, onSetPriority }) 
             </Popover>
         </Container>
     );
+};
+
+ActionsMenu.propTypes = {
+    onSetPriority: PropTypes.func.isRequired
 };
 
 export default ActionsMenu;

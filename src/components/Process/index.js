@@ -1,6 +1,6 @@
 import Process from './Process';
 import React, { useEffect, useState } from 'react';
-import { socket } from '../../utils/socket';
+import {listen} from '../../utils/socket';
 import {
     addWorker,
     autoAssignProcess,
@@ -9,18 +9,19 @@ import {
     suspendProcess,
 } from '../../api/processes.api';
 
+
 const useProcessListener = initialValue => {
     const [process, setProcess] = useState(initialValue);
     useEffect(() => {
-        socket.on('refresh-process-' + process.id, refreshedProcess => {
+        listen('refresh-process-' + process.id, refreshedProcess => {
             setProcess(refreshedProcess);
         });
-    }, []);
+    }, [process.id]);
 
     return { process };
 };
 
-export default ({ data }) => {
+const _Process =  ({ data }) => {
     const { process } = useProcessListener(data);
     const { id } = process;
 
@@ -45,3 +46,5 @@ export default ({ data }) => {
         />
     );
 };
+
+export default _Process;

@@ -2,6 +2,8 @@ import React from 'react';
 import { Container } from './StatusBar.styled-components';
 import Icon from '../Icon';
 import { Row } from '../UI/Pane';
+import {Text} from "../UI/Typography";
+import {useLocale} from "../../i18n/LocaleHooks";
 
 const StatusBar = ({ status }) => {
     const colors = {
@@ -19,16 +21,21 @@ const StatusBar = ({ status }) => {
         Paused: 'pause-circle',
         Assigned: 'user-circle',
     };
+
+    const [{process}] = useLocale();
+
     return (
         <Container color={colors[status]} data-cy="status-bar">
             <Row align="center">
                 <Icon
-                    size={12}
+                    size={'1.2em'}
                     name={icons[status]}
                     style={{ marginRight: 4, marginTop: 2 }}
                     inverse
                 />
-                {status}
+                <Text inverse>
+                    {process.status[status]}
+                </Text>
             </Row>
         </Container>
     );
